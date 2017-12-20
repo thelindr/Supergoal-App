@@ -15,16 +15,17 @@ export default class App extends React.Component {
   }
 
   updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
-    this.setState = {
+    console.log("parent function was invoked")
+    this.setState({
       superGoal: {
         name: newSuperGoalName,
         value: newSuperGoalValue
       }
-    }
+    })
   }
 
   render() {
-    console.log(this.state.superGoal)
+    console.log("Thank you, mom got your supergoal:", this.state.superGoal)
     return (
       <div>
         <SetSuperGoal

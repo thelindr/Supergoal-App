@@ -14,16 +14,17 @@ export default class App extends React.Component {
     }
   }
 
-  updateSuperGoal = (newName, newValue) => {
+  updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
     this.setState = {
       superGoal: {
-        name: newName,
-        value: newValue
+        name: newSuperGoalName,
+        value: newSuperGoalValue
       }
     }
   }
 
   render() {
+    console.log(this.state.superGoal)
     return (
       <div>
         <SetSuperGoal

@@ -5,8 +5,7 @@ export default class SetTask extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      taskName: "",
-      done: false
+      taskName: ""
     }
   }
 
@@ -16,19 +15,16 @@ export default class SetTask extends React.Component {
     })
   }
 
-  handleDoneChange = event => {
-    this.setState({
-      done: event.target.value
-    })
-  }
-
-  //prevent clearing the page
   handleFormSubmit = event => {
-    console.log("submit")
-    event.preventDefault()
+    event.preventDefault() //1.prevent clearing the page
+    this.props.addTaskToList(this.state.taskName) //2.Updates list in parent
+    this.setState({
+      taskName: ""
+    }) //3.Resets the form inputfield
   }
 
   render() {
+    // console.log("This is the taskname", this.state.taskName)
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
@@ -37,12 +33,9 @@ export default class SetTask extends React.Component {
             name="taskName"
             value={this.state.taskName}
             onChange={this.handleTaskNameChange}
-            placeholder="My task" />
+            placeholder="Write task here" />
 
-          <input
-            type="checkbox"
-            checked={this.state.done}
-            onChange={this.handleDoneChange} />
+          <button type="submit">Add task</button>
 
         </form>
       </div>

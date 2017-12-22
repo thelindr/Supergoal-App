@@ -5,7 +5,7 @@ export default class Mainscreen extends React.Component {
   render() {
     return (
       <div>
-        Find me in src/app.js!
+        This is the Main Screen! WOHOO!
       </div>
     )
   }

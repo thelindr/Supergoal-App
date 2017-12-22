@@ -4,7 +4,7 @@ import Mainscreen from "./mainscreen"
 
 import SetSuperGoal from "./setSuperGoal"
 import SetTask from "./setTask"
-import ListItem from ".listItem"
+import ListItem from "./listItem"
 
 export default class App extends React.Component {
 

@@ -1,6 +1,7 @@
 import React from "react"
 
 import SetSuperGoal from "./setSuperGoal"
+import SetTask from "./setTask"
 
 export default class App extends React.Component {
 
@@ -22,6 +23,16 @@ export default class App extends React.Component {
         value: newSuperGoalValue
       }
     })
+  }
+
+  updateTaskList = (taskName) => {
+    console.log("Task updated in parent", taskName)
+    // this.setState({
+    //   setTask: {
+    //     taskName: "",
+    //     done: false
+    //   }
+    // })
   }
 
   render() {

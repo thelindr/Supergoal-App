@@ -3,7 +3,7 @@ import React from "react"
 export default class ListItem extends React.Component {
 
   handleCheckboxChange = () => {
-    this.props.updateDone(this.props.item.name)
+    this.props.updateDone(this.props.id)
   }
 
   render() {

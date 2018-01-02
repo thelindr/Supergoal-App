@@ -1,4 +1,5 @@
 import React from "react"
+import uuid from "uuid/v4"
 // import { BrowserRouter, Route } from "react-router-dom"
 // import Mainscreen from "./mainscreen"
 
@@ -15,7 +16,7 @@ export default class App extends React.Component {
       //   name: "",
       //   value: null
       // },
-      taskList: []
+      taskList: [] // start the app with an empty array
     }
   }
 
@@ -30,15 +31,17 @@ export default class App extends React.Component {
   // }
 
   addTaskToList = taskName => {
-    console.log("Task updated in parent", taskName)
+    // console.log("Task updated in parent", taskName)
     this.setState({
-      taskList: [...this.state.taskList, { name: taskName, done: false }]
+      taskList: [...this.state.taskList, { id: uuid(), name: taskName, done: false }]
+      // At the end of array taskList, add a new object ^
     })
   }
 
-  updateDoneStatus = nameOfTaskUpdate => {
+  updateDoneStatus = id => { // Function receives the name of the object
+    // that shall be updated
     const updatedListOfTasks = this.state.taskList.map(item => {
-      if (item.name === nameOfTaskUpdate) {
+      if (item.id === id) {
         item.done = !item.done
       }
       return item
@@ -58,6 +61,8 @@ export default class App extends React.Component {
         <h1>My tasks:</h1>
         {this.state.taskList.map(item => (
           <ListItem
+            key={item.id}
+            id={item.id}
             item={item}
             updateDone={this.updateDoneStatus} />
         ))}

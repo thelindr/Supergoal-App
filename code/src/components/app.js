@@ -38,9 +38,14 @@ export default class App extends React.Component {
 
   addTaskToList = (taskName, taskTimes, taskValue) => {
     const taskObject = {
-      id: uuid(), name: taskName, done: false, times: taskTimes, value: taskValue
+      id: uuid(),
+      name: taskName,
+      done: false,
+      times: parseFloat(taskTimes),
+      value: taskValue,
+      counter: 0
     }
-    // console.log("Task updated in parent", taskName)
+    // FIX: Remove done?
     this.setState({
       taskList: [taskObject, ...this.state.taskList] // FIX: prevState
     }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
@@ -48,11 +53,27 @@ export default class App extends React.Component {
     // The object needs to be stringified to be able to be saved in the state.
   }
 
-  updateDoneStatus = id => { // Function receives the name of the object
+  // updateDoneStatus = id => { // Function receives the name of the object
+  //   // that shall be updated
+  //   const updatedListOfTasks = this.state.taskList.map(item => {
+  //     if (item.id === id) {
+  //       item.done = !item.done
+  //     }
+  //     return item
+  //   })
+  //   this.setState({
+  //     taskList: updatedListOfTasks
+  //   }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
+  // }
+  // As JavaScript is asynchronous, we need a funcion to make sure
+  // that it is run only after the state of addTaskToList is changed
+  // as the newly object needs to be used
+
+  updateCounter = id => { // Function receives the id of the object
     // that shall be updated
     const updatedListOfTasks = this.state.taskList.map(item => {
       if (item.id === id) {
-        item.done = !item.done
+        item.counter += 1
       }
       return item
     })
@@ -60,9 +81,6 @@ export default class App extends React.Component {
       taskList: updatedListOfTasks
     }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
   }
-  // As JavaScript is asynchronous, we need a funcion to make sure
-  // that it is run only after the state of addTaskToList is changed
-  // as the newly object needs to be used
 
   render() {
     console.log("List of tasks", this.state.taskList)
@@ -77,7 +95,7 @@ export default class App extends React.Component {
             key={item.id}
             id={item.id}
             item={item}
-            updateDone={this.updateDoneStatus} />
+            buttonWasClicked={this.updateCounter} />
         ))}
       </div>
       // <BrowserRouter>

@@ -29,13 +29,21 @@ export default class App extends React.Component {
   //     }
   //   })
   // }
+  componentWillMount() {
+    if (localStorage.getItem("savedTaskObject")) {
+      this.setState(JSON.parse(localStorage.getItem("savedTaskObject")))
+    }
+  }
+  // Here we parse (change the string back to an object) the localstorage from addTaskToList
 
   addTaskToList = taskName => {
+    const taskObject = { id: uuid(), name: taskName, done: false }
     // console.log("Task updated in parent", taskName)
     this.setState({
-      taskList: [...this.state.taskList, { id: uuid(), name: taskName, done: false }]
-      // At the end of array taskList, add a new object ^
-    })
+      taskList: [taskObject, ...this.state.taskList]
+    }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
+    // At the end of array taskList, add a new object
+    // The object needs to be stringified to be able to be saved in the state.
   }
 
   updateDoneStatus = id => { // Function receives the name of the object
@@ -48,8 +56,11 @@ export default class App extends React.Component {
     })
     this.setState({
       taskList: updatedListOfTasks
-    })
+    }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
   }
+  // As JavaScript is asynchronous, we need a funcion to make sure
+  // that it is run only after the state of addTaskToList is changed
+  // as the newly object needs to be used
 
   render() {
     console.log("List of tasks", this.state.taskList)

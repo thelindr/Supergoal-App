@@ -21,7 +21,7 @@ export default class App extends React.Component {
   }
 
   updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
-    console.log("parent function was invoked")
+    // console.log("parent function was invoked")
     this.setState({
       superGoal: {
         name: newSuperGoalName,
@@ -106,7 +106,7 @@ export default class App extends React.Component {
   )
 
   render() {
-    console.log("List of tasks", this.state.taskList)
+    // console.log("List of tasks", this.state.taskList)
     // console.log("Thank you, mom got your supergoal:", this.state.superGoal)
     return (
       <BrowserRouter>
@@ -123,27 +123,34 @@ export default class App extends React.Component {
           <Route
             exact
             path="/"
-            render={() =>
-              <div>
-                <SetTask
-                  addTaskToList={this.addTaskToList} />
-                <h1>My tasks:</h1>
-                {this.state.taskList.map(item => (
-                  <ListItem
-                    key={item.id}
-                    id={item.id}
-                    item={item}
-                    doneButtonWasClicked={this.updateCounter}
-                    deleteButtonWasClicked={this.removeTaskFromList} />
-                ))}
-                <div>
-                  <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
-                  <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
-                     of your supergoal
-                  </h4>
-                </div>
-              </div>
-            } />
+            render={() => {
+              if (this.state.superGoal.value === null) {
+                return <SetSuperGoal
+                  updateSuperGoalInApp={this.updateSuperGoal} />
+              } else {
+                return (
+                  <div>
+                    <SetTask
+                      addTaskToList={this.addTaskToList} />
+                    <h1>My tasks:</h1>
+                    {this.state.taskList.map(item => (
+                      <ListItem
+                        key={item.id}
+                        id={item.id}
+                        item={item}
+                        doneButtonWasClicked={this.updateCounter}
+                        deleteButtonWasClicked={this.removeTaskFromList} />
+                    ))}
+                    <div>
+                      <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
+                      <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
+                       of your supergoal
+                      </h4>
+                    </div>
+                  </div>
+                )
+              }
+            }} />
 
         </div>
       </BrowserRouter>

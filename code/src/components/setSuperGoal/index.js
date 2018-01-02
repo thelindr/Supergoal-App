@@ -23,13 +23,13 @@ export default class SetSuperGoal extends React.Component {
   }
 
 handleFormSubmit = event => {
-  console.log("submit")
+  // console.log("submit")
   event.preventDefault()
   this.props.updateSuperGoalInApp(this.state.superGoalName, this.state.superGoalValue)
 }
 
 render() {
-  console.log(this.state.superGoalName)
+  // console.log(this.state.superGoalName)
   return (
     <div>
       <form onSubmit={this.handleFormSubmit}>

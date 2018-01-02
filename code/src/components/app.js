@@ -3,7 +3,7 @@ import uuid from "uuid/v4"
 // import { BrowserRouter, Route } from "react-router-dom"
 // import Mainscreen from "./mainscreen"
 
-// import SetSuperGoal from "./setSuperGoal"
+import SetSuperGoal from "./setSuperGoal"
 import SetTask from "./setTask"
 import ListItem from "./listItem"
 
@@ -12,26 +12,27 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      // superGoal: {
-      //   name: "",
-      //   value: null
-      // },
+      superGoal: {
+        name: "",
+        value: null
+      },
       taskList: [] // start the app with an empty array
     }
   }
 
-  // updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
-  //   console.log("parent function was invoked")
-  //   this.setState({
-  //     superGoal: {
-  //       name: newSuperGoalName,
-  //       value: newSuperGoalValue
-  //     }
-  //   })
-  // }
+  updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
+    console.log("parent function was invoked")
+    this.setState({
+      superGoal: {
+        name: newSuperGoalName,
+        value: parseFloat(newSuperGoalValue)
+      }
+    }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
+  }
+
   componentWillMount() {
-    if (localStorage.getItem("savedTaskObject")) {
-      this.setState(JSON.parse(localStorage.getItem("savedTaskObject")))
+    if (localStorage.getItem("superGoalAppData")) {
+      this.setState(JSON.parse(localStorage.getItem("superGoalAppData")))
     }
   }
   // Here we parse (change the string back to an object) the localstorage from addTaskToList
@@ -48,7 +49,7 @@ export default class App extends React.Component {
     // FIX: Remove done?
     this.setState({
       taskList: [taskObject, ...this.state.taskList] // FIX: prevState
-    }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
+    }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
     // At the end of array taskList, add a new object
     // The object needs to be stringified to be able to be saved in the state.
   }
@@ -59,7 +60,7 @@ export default class App extends React.Component {
         item.id !== taskId // Filter creates a new array containing items that
         // match this condition
       ))
-    }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
+    }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
   }
 
   // updateDoneStatus = id => { // Function receives the name of the object
@@ -72,7 +73,7 @@ export default class App extends React.Component {
   //   })
   //   this.setState({
   //     taskList: updatedListOfTasks
-  //   }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
+  //   }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
   // }
   // As JavaScript is asynchronous, we need a funcion to make sure
   // that it is run only after the state of addTaskToList is changed
@@ -88,7 +89,7 @@ export default class App extends React.Component {
     })
     this.setState({
       taskList: updatedListOfTasks
-    }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
+    }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
   }
 
   countTotalEarnings = () => {
@@ -100,11 +101,17 @@ export default class App extends React.Component {
     return totalEarningsCounter // Return the value of the totalEarningsCounter
   }
 
+  countPercentageOfSupergoal = () => (
+    (this.countTotalEarnings() / this.state.superGoal.value) * 100
+  )
+
   render() {
     console.log("List of tasks", this.state.taskList)
     // console.log("Thank you, mom got your supergoal:", this.state.superGoal)
     return (
       <div>
+        <SetSuperGoal
+          updateSuperGoalInApp={this.updateSuperGoal} />
         <SetTask
           addTaskToList={this.addTaskToList} />
         <h1>My tasks:</h1>
@@ -117,7 +124,8 @@ export default class App extends React.Component {
             deleteButtonWasClicked={this.removeTaskFromList} />
         ))}
         <div>
-          <h4>Wow, you’ve earned: {this.countTotalEarnings()} kronor</h4>
+          <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
+          <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37; of your supergoal</h4>
         </div>
       </div>
       // <BrowserRouter>

@@ -36,11 +36,13 @@ export default class App extends React.Component {
   }
   // Here we parse (change the string back to an object) the localstorage from addTaskToList
 
-  addTaskToList = taskName => {
-    const taskObject = { id: uuid(), name: taskName, done: false }
+  addTaskToList = (taskName, taskTimes, taskValue) => {
+    const taskObject = {
+      id: uuid(), name: taskName, done: false, times: taskTimes, value: taskValue
+    }
     // console.log("Task updated in parent", taskName)
     this.setState({
-      taskList: [taskObject, ...this.state.taskList]
+      taskList: [taskObject, ...this.state.taskList] // FIX: prevState
     }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
     // At the end of array taskList, add a new object
     // The object needs to be stringified to be able to be saved in the state.

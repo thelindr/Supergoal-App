@@ -14,6 +14,8 @@ export default class ListItem extends React.Component {
           checked={this.props.item.done}
           onChange={this.handleCheckboxChange} />
         {this.props.item.name}
+        {this.props.item.times}
+        {this.props.item.value}
       </div>
     )
   }

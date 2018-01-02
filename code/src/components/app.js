@@ -115,8 +115,8 @@ export default class App extends React.Component {
             path="/set-supergoal"
             render={() =>
               <SetSuperGoal
-                updateSuperGoalInApp={this.updateSuperGoal} />
-            } /> */}
+            updateSuperGoalInApp={this.updateSuperGoal} />
+          } /> */}
 
           <Route
             exact
@@ -125,48 +125,32 @@ export default class App extends React.Component {
               if (this.state.superGoal.value === null) { // if there is no superGoal
                 return <SetSuperGoal
                   updateSuperGoalInApp={this.updateSuperGoal} />
-              } else {
-                if (this.state.taskList.length === 0) {
-                  return
-                    <h1>My tasks:</h1>
-                    {this.state.taskList.map(item => (
-                      <ListItem
-                        key={item.id}
-                        id={item.id}
-                        item={item}
-                        doneButtonWasClicked={this.updateCounter}
-                        deleteButtonWasClicked={this.removeTaskFromList} />
-                        ))}
-                      }
-
+              } else { // else
+                return <div>
+                  {this.state.taskList.length > 0 && // if there are items in the taskList,
+                    // display them
+                    <div>
+                      <h1>My tasks:</h1>
+                      {this.state.taskList.map(item => (
+                        <ListItem
+                          key={item.id}
+                          id={item.id}
+                          item={item}
+                          doneButtonWasClicked={this.updateCounter}
+                          deleteButtonWasClicked={this.removeTaskFromList} />
+                      ))}
+                    </div>
+                  }
+                  {/* SetTask is always displayed if there is a superGoal */}
+                  <SetTask
+                    addTaskToList={this.addTaskToList} />
+                </div>
               }
             }
-
-
-            //
-            //         <div>
-            //           <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
-            //           <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
-            //            of your supergoal
-            //           </h4>
-            //         </div>
-            //         <SetTask
-            //           addTaskToList={this.addTaskToList} />
-            //       </div>
-            //     )
-            //   }
-            // }} />
-          } />
+            } />
 
         </div>
       </BrowserRouter>
-      // <BrowserRouter>
-      //   <div>
-      //     {/* <SetSuperGoal
-      //       updateSuperGoalInApp={this.updateSuperGoal} /> */}
-      //     <Route path="/" exact render={() => <SetSuperGoal updateSuperGoalInApp={this.updateSuperGoal} />} />
-      //   </div>
-      // </BrowserRouter>
     )
   }
 

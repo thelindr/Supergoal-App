@@ -106,32 +106,28 @@ export default class App extends React.Component {
   )
 
   render() {
-    // console.log("List of tasks", this.state.taskList)
-    // console.log("Thank you, mom got your supergoal:", this.state.superGoal)
     return (
       <BrowserRouter>
         <div className="App">
 
-          <Route
+          {/* <Route
             exact
             path="/set-supergoal"
             render={() =>
               <SetSuperGoal
                 updateSuperGoalInApp={this.updateSuperGoal} />
-            } />
+            } /> */}
 
           <Route
             exact
-            path="/"
-            render={() => {
-              if (this.state.superGoal.value === null) {
+            path="/" // if the URL matches '/' exactly
+            render={() => { // then render
+              if (this.state.superGoal.value === null) { // if there is no superGoal
                 return <SetSuperGoal
                   updateSuperGoalInApp={this.updateSuperGoal} />
               } else {
-                return (
-                  <div>
-                    <SetTask
-                      addTaskToList={this.addTaskToList} />
+                if (this.state.taskList.length === 0) {
+                  return
                     <h1>My tasks:</h1>
                     {this.state.taskList.map(item => (
                       <ListItem
@@ -140,17 +136,27 @@ export default class App extends React.Component {
                         item={item}
                         doneButtonWasClicked={this.updateCounter}
                         deleteButtonWasClicked={this.removeTaskFromList} />
-                    ))}
-                    <div>
-                      <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
-                      <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
-                       of your supergoal
-                      </h4>
-                    </div>
-                  </div>
-                )
+                        ))}
+                      }
+
               }
-            }} />
+            }
+
+
+            //
+            //         <div>
+            //           <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
+            //           <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
+            //            of your supergoal
+            //           </h4>
+            //         </div>
+            //         <SetTask
+            //           addTaskToList={this.addTaskToList} />
+            //       </div>
+            //     )
+            //   }
+            // }} />
+          } />
 
         </div>
       </BrowserRouter>

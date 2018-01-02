@@ -144,6 +144,12 @@ export default class App extends React.Component {
                   {/* SetTask is always displayed if there is a superGoal */}
                   <SetTask
                     addTaskToList={this.addTaskToList} />
+
+                  {/* <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
+                    <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
+                    of your supergoal
+                  </h4> */}
+                  
                 </div>
               }
             }

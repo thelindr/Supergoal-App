@@ -82,6 +82,14 @@ export default class App extends React.Component {
     }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
   }
 
+  countTotalEarnings = () => {
+    let totalEarningsCounter = 0
+    this.state.taskList.forEach(item => {
+      totalEarningsCounter += (item.value * item.counter)
+    })
+    return totalEarningsCounter
+  }
+
   render() {
     console.log("List of tasks", this.state.taskList)
     // console.log("Thank you, mom got your supergoal:", this.state.superGoal)
@@ -97,6 +105,9 @@ export default class App extends React.Component {
             item={item}
             buttonWasClicked={this.updateCounter} />
         ))}
+        <div>
+          <h4>Wow, you´ve earned: {this.countTotalEarnings()}</h4>
+        </div>
       </div>
       // <BrowserRouter>
       //   <div>

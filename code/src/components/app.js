@@ -53,6 +53,14 @@ export default class App extends React.Component {
     // The object needs to be stringified to be able to be saved in the state.
   }
 
+  removeTaskFromList = taskId => {
+    this.setState({
+      taskList: this.state.taskList.filter(item => (
+        item.id !== taskId
+      ))
+    }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
+  }
+
   // updateDoneStatus = id => { // Function receives the name of the object
   //   // that shall be updated
   //   const updatedListOfTasks = this.state.taskList.map(item => {
@@ -103,10 +111,11 @@ export default class App extends React.Component {
             key={item.id}
             id={item.id}
             item={item}
-            buttonWasClicked={this.updateCounter} />
+            doneButtonWasClicked={this.updateCounter}
+            deleteButtonWasClicked={this.removeTaskFromList} />
         ))}
         <div>
-          <h4>Wow, you´ve earned: {this.countTotalEarnings()}</h4>
+          <h4>Wow, you’ve earned: {this.countTotalEarnings()} kronor</h4>
         </div>
       </div>
       // <BrowserRouter>

@@ -55,8 +55,9 @@ export default class App extends React.Component {
 
   removeTaskFromList = taskId => {
     this.setState({
-      taskList: this.state.taskList.filter(item => (
-        item.id !== taskId
+      taskList: this.state.taskList.filter(item => ( // FIX: prevState
+        item.id !== taskId // Filter creates a new array containing items that
+        // match this condition
       ))
     }, () => { localStorage.setItem("savedTaskObject", JSON.stringify(this.state)) })
   }
@@ -91,11 +92,12 @@ export default class App extends React.Component {
   }
 
   countTotalEarnings = () => {
-    let totalEarningsCounter = 0
-    this.state.taskList.forEach(item => {
-      totalEarningsCounter += (item.value * item.counter)
+    let totalEarningsCounter = 0 // Start a counter at 0
+    this.state.taskList.forEach(item => { // For each item in the tasklist
+      totalEarningsCounter += (item.value * item.counter) // Add the earnings
+      // for the item to the totalEarningsCounter
     })
-    return totalEarningsCounter
+    return totalEarningsCounter // Return the value of the totalEarningsCounter
   }
 
   render() {

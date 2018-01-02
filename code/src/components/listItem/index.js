@@ -30,6 +30,7 @@ export default class ListItem extends React.Component {
         <button
           onClick={this.handleDoneButtonClicked}
           disabled={this.props.item.times === this.props.item.counter}>
+          {/* The button is disabled if the times equals counter */}
           I’m done!
         </button>
         <button

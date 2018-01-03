@@ -11,9 +11,9 @@ body {
 .btn {
   border-radius: 28px;
   box-shadow: 0px 3px 0px #8a2d79;
-  font-family: Arial;
+  font-family: 'Dosis', sans-serif;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 15px;
   background: #cf5dba;
   padding: 10px 20px 10px 20px;
   border: solid #cf5dba 0px;
@@ -42,4 +42,8 @@ h4 {
 label, p {
   font-size: 18px;
   line-height: 24px;
+}
+
+input {
+  font-family: 'Dosis', sans-serif;
 }

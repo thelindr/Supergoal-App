@@ -48,7 +48,7 @@ render() {
           name="superGoalName"
           value={this.state.superGoalName}
           onChange={this.handleSuperGoalNameChange} />
-
+        <br />
         <label htmlFor="valueKey">I need this much money to get to my Super Goal:</label>
 
         <input
@@ -58,7 +58,7 @@ render() {
           value={this.state.superGoalValue}
           onChange={this.handleSuperGoalValueChange} />
 
-        <input type="submit" value="Save SuperGoal" />
+        <input className="btn" type="submit" value="Save SuperGoal" />
 
       </form>
     </div>

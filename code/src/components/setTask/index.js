@@ -18,13 +18,13 @@ export default class SetTask extends React.Component {
   }
 
   handleFormSubmit = event => {
-    event.preventDefault() //1.prevent clearing the page
-    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue) //2.Updates list in parent
+    event.preventDefault() // 1.prevent clearing the page
+    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue) // 2.Updates list in parent
     this.setState({
       taskName: "",
       taskTimes: "1",
       taskValue: ""
-    }) //3.Resets the form inputfield
+    }) // 3.Resets the form inputfield
   }
 
   handleTaskTimesChange = event => {
@@ -46,9 +46,10 @@ export default class SetTask extends React.Component {
     // console.log("This is the taskname", this.state.taskName)
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        <form className="setTask" onSubmit={this.handleFormSubmit}>
           <label>
             Write your task name here:
+            <br />
             <input
               type="text"
               name="taskName"
@@ -56,7 +57,7 @@ export default class SetTask extends React.Component {
               onChange={this.handleTaskNameChange}
               placeholder="Write task here" />
           </label>
-
+          <br />
           <label>
             How many times to be done this week?
             <select value={this.state.taskTimes} onChange={this.handleTaskTimesChange}>
@@ -69,9 +70,10 @@ export default class SetTask extends React.Component {
               <option value="7">7</option>
             </select>
           </label>
-
+          <br />
           <label>
             Write your task value here:
+            <br />
             <input
               type="number"
               name="taskValue"
@@ -79,8 +81,9 @@ export default class SetTask extends React.Component {
               onChange={this.handleTaskValueChange}
               placeholder="Write task value here" />
           </label>
+          <br />
 
-          <button type="submit">Add task</button>
+          <button className="btn" type="submit">Add task</button>
 
         </form>
       </div>

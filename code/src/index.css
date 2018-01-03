@@ -69,6 +69,29 @@ body {
   text-decoration: none;
 }
 
+.btn-cancel {
+  border-radius: 28px;
+  box-shadow: 0px 4px 0px #c76ab6;
+  font-family: 'Dosis', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: #fa7aae;
+  padding: 10px 20px 10px 20px;
+  border: solid #fa7aae 0px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.btn-cancel:hover {
+  background: #f21359;
+  box-shadow: 0px 3px 0px #8a2d79;
+  text-decoration: none;
+}
+
 .earningscontainer, .settaskcontainer {
   width: 80%;
   margin-left: 10%;
@@ -155,6 +178,30 @@ body {
 
 .boldtext {
   font-weight: 700;
+}
+
+.changeGoal {
+  border-radius: 28px;
+  box-shadow: 0px 4px 0px #7f2900;
+  font-family: 'Dosis', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: #ff9e23;
+  padding: 10px 20px 10px 20px;
+  border: solid #ff9e23 0px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+.changeGoal:hover {
+  background:#ee8502;
+  /*background: #efacfe;*/
+  text-decoration: none;
+  box-shadow: 0px 4px 0px #7f2900;
 }
 
 h1 {

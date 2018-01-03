@@ -52,7 +52,6 @@ render() {
         <div>
           <h2>Welcome!</h2>
           <p>First of all, set up your SuperGoal!
-            <br /> What do you want to save money for?
           </p>
         </div>
       ) : (
@@ -73,7 +72,7 @@ render() {
 
       <form onSubmit={this.handleFormSubmit}>
 
-        <label htmlFor="superNameKey">My SuperGoal to save money for:</label>
+        <label htmlFor="superNameKey">What do you want to save money for?</label>
         <br />
         <input
           id="superNameKey"
@@ -85,7 +84,7 @@ render() {
 
         <br />
 
-        <label htmlFor="valueKey">Total amount required to reach my SuperGoal:</label>
+        <label htmlFor="valueKey">How much money do you need to reach your SuperGoal?</label>
         <br />
         <div>
           <input

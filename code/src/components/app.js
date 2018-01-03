@@ -59,6 +59,9 @@ export default class App extends React.Component {
       value: taskValue,
       counter: 0
     }
+    if (taskName === ("") || taskValue === ("")) {
+      return null
+    }
     // FIX: Remove done?
     this.setState({
       taskList: [taskObject, ...this.state.taskList] // FIX: prevState
@@ -115,7 +118,7 @@ export default class App extends React.Component {
   }
 
   countPercentageOfSupergoal = () => (
-    (this.countTotalEarnings() / this.state.superGoal.value) * 100
+    ((this.countTotalEarnings() / this.state.superGoal.value) * 100).toFixed(2)
   )
 
   render() {
@@ -143,6 +146,8 @@ export default class App extends React.Component {
                   deleteButtonWasClicked={this.removeTaskFromList}
                   countTotalEarnings={this.countTotalEarnings}
                   countPercentageOfSupergoal={this.countPercentageOfSupergoal}
+                  showTwoDecimals={this.showTwoDecimals}
+                  superGoalName={this.state.superGoal.name}
                   addTaskToList={this.addTaskToList} />
               }
             }

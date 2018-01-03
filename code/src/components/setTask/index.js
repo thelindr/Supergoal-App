@@ -18,13 +18,14 @@ export default class SetTask extends React.Component {
   }
 
   handleFormSubmit = event => {
-    event.preventDefault() //1.prevent clearing the page
-    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue) //2.Updates list in parent
+    event.preventDefault() // 1.prevent clearing the page
+    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue)
+    // 2.Updates list in parent
     this.setState({
       taskName: "",
       taskTimes: "1",
       taskValue: ""
-    }) //3.Resets the form inputfield
+    }) // 3.Resets the form inputfield
   }
 
   handleTaskTimesChange = event => {
@@ -39,6 +40,10 @@ export default class SetTask extends React.Component {
       // taskValue: event.target.value
         taskValue: parseFloat(event.target.value)
       })
+    } else if (event.target.value === "") {
+      this.setState({
+        taskValue: ""
+      })
     }
   }
 
@@ -46,19 +51,20 @@ export default class SetTask extends React.Component {
     // console.log("This is the taskname", this.state.taskName)
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        <form className="setTask" onSubmit={this.handleFormSubmit}>
           <label>
-            Write your task name here:
+            Write the name of a task here:
+            <br />
             <input
               type="text"
               name="taskName"
               value={this.state.taskName}
               onChange={this.handleTaskNameChange}
-              placeholder="Write task here" />
+              placeholder="e.g Clean your room" />
           </label>
-
+          <br />
           <label>
-            How many times to be done this week?
+            How many times should this be done per week?
             <select value={this.state.taskTimes} onChange={this.handleTaskTimesChange}>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -69,18 +75,20 @@ export default class SetTask extends React.Component {
               <option value="7">7</option>
             </select>
           </label>
-
+          <br />
           <label>
-            Write your task value here:
+            Write the value of your task here:
+            <br />
             <input
               type="number"
               name="taskValue"
               value={this.state.taskValue}
               onChange={this.handleTaskValueChange}
-              placeholder="Write task value here" />
+              placeholder="e.g 50" />
           </label>
+          <br />
 
-          <button type="submit">Add task</button>
+          <button className="btn" type="submit">Add task</button>
 
         </form>
       </div>

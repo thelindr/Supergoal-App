@@ -107,20 +107,13 @@ export default class App extends React.Component {
       <BrowserRouter>
         <div className="App">
 
-          {/* <Route
-            exact
-            path="/set-supergoal"
-            render={() =>
-              <SetSuperGoal
-            updateSuperGoalInApp={this.updateSuperGoal} />
-          } /> */}
-
           <Route
             exact
             path="/" // if the URL matches '/' exactly
             render={() => { // then render
               if (this.state.superGoal.value === null) { // if there is no superGoal
                 return <SetSuperGoalScreen // then display the SetSuperGoalScreen
+                  currentSuperGoal={this.state.superGoal}
                   updateSuperGoalInApp={this.updateSuperGoal} /> // the callback function located
                 // in this component, will be invoked
                 // when the superGoal is setup
@@ -137,6 +130,15 @@ export default class App extends React.Component {
                   addTaskToList={this.addTaskToList} />
               }
             }
+            } />
+
+          <Route
+            exact
+            path="/update-supergoal" // the URL used if the user wants to update her SuperGoal
+            render={() =>
+              <SetSuperGoalScreen
+                currentSuperGoal={this.state.superGoal}
+                updateSuperGoalInApp={this.updateSuperGoal} />
             } />
 
         </div>

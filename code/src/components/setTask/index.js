@@ -18,11 +18,7 @@ export default class SetTask extends React.Component {
   }
 
   handleFormSubmit = event => {
-<<<<<<< HEAD
     event.preventDefault() //1.prevent clearing the page
-=======
-    event.preventDefault() // 1.prevent clearing the page
->>>>>>> b4164f7f9e475592b1fc0d31f36be34ee44233fd
     this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue) // 2.Updates list in parent
     this.setState({
       taskName: "",

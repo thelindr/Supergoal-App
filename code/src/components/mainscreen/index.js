@@ -11,25 +11,27 @@ export default class MainScreen extends React.Component {
         {this.props.taskList.length > 0 && // if there are items in the latest
           // updated taskList (passed on from the app/parent state via props),
           // then display them
-          <div>
+          <div className="container">
             <h1>My tasks:</h1>
-            {this.props.taskList.map(item => (
-              <ListItem
-                key={item.id}
-                id={item.id}
-                item={item}
-                doneButtonWasClicked={this.props.doneButtonWasClicked}
-                deleteButtonWasClicked={this.props.deleteButtonWasClicked} />
-            ))}
+            <div className="taskListcontainer">
+              {this.props.taskList.map(item => (
+                <ListItem
+                  key={item.id}
+                  id={item.id}
+                  item={item}
+                  doneButtonWasClicked={this.props.doneButtonWasClicked}
+                  deleteButtonWasClicked={this.props.deleteButtonWasClicked} />
+              ))}
+            </div>
           </div>
         }
         {this.props.countTotalEarnings() > 0 && // if there are any earnings
           // then display the total earnings and the percentage of the supergoal
-          <div>
+          <div className="earningscontainer">
             <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor!</h4>
             <h4>That means you are {this.props.countPercentageOfSupergoal()} &#37;
-              closer to get your {this.props.superGoalName} !!!</h4>
-
+              closer to get your {this.props.superGoalName} !!!
+            </h4>
 
           </div>
         }

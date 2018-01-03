@@ -22,15 +22,18 @@ export default class MainScreen extends React.Component {
             ))}
           </div>
         }
+        {this.props.countTotalEarnings() > 0 && // if there are any earnings
+          // then display the total earnings and the percentage of the supergoal
+          <div>
+            <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor</h4>
+            <h4>You&apos;ve earned {this.props.countPercentageOfSupergoal()} &#37;
+              of your supergoal
+            </h4>
+          </div>
+        }
         {/* SetTask is always displayed if there is a superGoal */}
         <SetTask
           addTaskToList={this.props.addTaskToList} />
-
-        {/* <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
-          <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
-          of your supergoal
-        </h4> */}
-
       </div>
     )
   }

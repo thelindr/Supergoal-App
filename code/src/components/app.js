@@ -128,9 +128,11 @@ export default class App extends React.Component {
                 return <MainScreen
                   taskList={this.state.taskList} // pass on the last update of
                   // the taskList (in the state) in the props
-                  doneButtonWasClicked={this.updateCounter}
-                  deleteButtonWasClicked={this.removeTaskFromList} // these three callback functions
+                  doneButtonWasClicked={this.updateCounter} // these callback functions
                   // are located in this component. They are passed on as props.
+                  deleteButtonWasClicked={this.removeTaskFromList}
+                  countTotalEarnings={this.countTotalEarnings}
+                  countPercentageOfSupergoal={this.countPercentageOfSupergoal}
                   addTaskToList={this.addTaskToList} />
               }
             }

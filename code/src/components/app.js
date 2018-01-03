@@ -132,7 +132,8 @@ export default class App extends React.Component {
             } />
 
           <Route
-            path="/set-supergoal" // the URL used if the user wants to update her SuperGoal
+            exact
+            path="/update-supergoal" // the URL used if the user wants to update her SuperGoal
             render={() =>
               <SetSuperGoalScreen
                 currentSuperGoal={this.state.superGoal}

@@ -7,7 +7,16 @@ export default class SetSuperGoalScreen extends React.Component {
     super(props)
     this.state = {
       superGoalName: "",
-      superGoalValue: null
+      superGoalValue: ""
+    }
+  }
+
+  componentWillMount() {
+    if (this.checkCurrentSuperGoal()) {
+      this.setState({
+        superGoalName: this.props.currentSuperGoal.name,
+        superGoalValue: this.props.currentSuperGoal.value
+      })
     }
   }
 
@@ -28,17 +37,35 @@ handleFormSubmit = event => {
   this.props.updateSuperGoalInApp(this.state.superGoalName, this.state.superGoalValue)
 }
 
+checkCurrentSuperGoal = () => (
+  this.props.currentSuperGoal.value !== null
+)
+
 render() {
   return (
     <div className="SetSuperGoalScreen">
 
-      {this.props.currentSuperGoal.value === null &&
+      {!this.checkCurrentSuperGoal() ? (
         <div>
           <h2>Welcome!</h2>
           <p>First of all, set up your SuperGoal!
             <br /> What do you want to save money for?
           </p>
         </div>
+      ) : (
+        <div>
+          <h2>Update SuperGoal</h2>
+          <p>Your current SuperGoal is
+            <br /><em>{this.props.currentSuperGoal.name}</em>
+          </p>
+          <p>with the required amount
+            <br /><em>{this.props.currentSuperGoal.value} SEK</em>
+          </p>
+          <p>
+            You can update your settings here:
+          </p>
+        </div>
+      )
       }
 
       <form onSubmit={this.handleFormSubmit}>
@@ -49,7 +76,7 @@ render() {
           id="superNameKey"
           type="text"
           name="superGoalName"
-          placeholder="e.g. Skateboard"
+          placeholder={!this.checkCurrentSuperGoal() ? "e.g. Skateboard" : ""}
           value={this.state.superGoalName}
           onChange={this.handleSuperGoalNameChange} />
 
@@ -62,13 +89,13 @@ render() {
             id="valueKey"
             type="number"
             name="value"
-            placeholder="e.g. 2000"
+            placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000" : ""}
             value={this.state.superGoalValue}
             onChange={this.handleSuperGoalValueChange} />
           <span>(SEK)</span>
         </div>
 
-        <input className="btn" type="submit" value="Save SuperGoal" />
+        <input className="btn" type="submit" value={!this.checkCurrentSuperGoal() ? "Save" : "Update"} />
 
       </form>
     </div>

@@ -31,7 +31,7 @@ render() {
   return (
     <div>
 
-      {this.props.superGoal.value === null &&
+      {this.props.currentSuperGoal.value === null &&
         <div>
           <h2>Welcome!</h2>
           <p>First of all, set up your SuperGoal!</p>

@@ -19,12 +19,12 @@ export default class SetTask extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault() //1.prevent clearing the page
-    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue) //2.Updates list in parent
+    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue) // 2.Updates list in parent
     this.setState({
       taskName: "",
       taskTimes: "1",
       taskValue: ""
-    }) //3.Resets the form inputfield
+    }) // 3.Resets the form inputfield
   }
 
   handleTaskTimesChange = event => {
@@ -38,6 +38,10 @@ export default class SetTask extends React.Component {
       this.setState({
       // taskValue: event.target.value
         taskValue: parseFloat(event.target.value)
+      })
+    } else if (event.target.value === "") {
+      this.setState({
+        taskValue: ""
       })
     }
   }

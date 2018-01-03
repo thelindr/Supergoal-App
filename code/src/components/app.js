@@ -1,7 +1,7 @@
 import React from "react"
 import uuid from "uuid/v4"
 import { BrowserRouter, Route } from "react-router-dom"
-import MainScreen from "./mainScreen"
+import MainScreen from "./mainscreen"
 import SetSuperGoalScreen from "./setSuperGoalScreen"
 
 export default class App extends React.Component {
@@ -42,6 +42,9 @@ export default class App extends React.Component {
       times: parseFloat(taskTimes),
       value: taskValue,
       counter: 0
+    }
+    if (taskName === ("") || taskValue === ("")) {
+      return null
     }
     // FIX: Remove done?
     this.setState({

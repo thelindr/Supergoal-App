@@ -1,4 +1,5 @@
 import React from "react"
+import "./style.css"
 
 export default class SetSuperGoalScreen extends React.Component {
 
@@ -6,7 +7,7 @@ export default class SetSuperGoalScreen extends React.Component {
     super(props)
     this.state = {
       superGoalName: "",
-      superGoalValue: 0
+      superGoalValue: null
     }
   }
 
@@ -29,34 +30,43 @@ handleFormSubmit = event => {
 
 render() {
   return (
-    <div>
+    <div className="SetSuperGoalScreen">
 
       {this.props.currentSuperGoal.value === null &&
         <div>
           <h2>Welcome!</h2>
-          <p>First of all, set up your SuperGoal!</p>
+          <p>First of all, set up your SuperGoal!
+            <br /> What do you want to save money for?
+          </p>
         </div>
       }
 
       <form onSubmit={this.handleFormSubmit}>
 
-        <label htmlFor="superNameKey">My Massively cool Super Goal:</label>
-
+        <label htmlFor="superNameKey">My SuperGoal to save money for:</label>
+        <br />
         <input
           id="superNameKey"
           type="text"
           name="superGoalName"
+          placeholder="e.g. Skateboard"
           value={this.state.superGoalName}
           onChange={this.handleSuperGoalNameChange} />
-        <br />
-        <label htmlFor="valueKey">I need this much money to get to my Super Goal:</label>
 
-        <input
-          id="valueKey"
-          type="number"
-          name="value"
-          value={this.state.superGoalValue}
-          onChange={this.handleSuperGoalValueChange} />
+        <br />
+
+        <label htmlFor="valueKey">Total amount required to reach my SuperGoal:</label>
+        <br />
+        <div>
+          <input
+            id="valueKey"
+            type="number"
+            name="value"
+            placeholder="e.g. 3000"
+            value={this.state.superGoalValue}
+            onChange={this.handleSuperGoalValueChange} />
+          <span>(SEK)</span>
+        </div>
 
         <input className="btn" type="submit" value="Save SuperGoal" />
 

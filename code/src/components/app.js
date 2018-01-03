@@ -107,14 +107,6 @@ export default class App extends React.Component {
       <BrowserRouter>
         <div className="App">
 
-          {/* <Route
-            exact
-            path="/set-supergoal"
-            render={() =>
-              <SetSuperGoal
-            updateSuperGoalInApp={this.updateSuperGoal} />
-          } /> */}
-
           <Route
             exact
             path="/" // if the URL matches '/' exactly
@@ -134,9 +126,19 @@ export default class App extends React.Component {
                   deleteButtonWasClicked={this.removeTaskFromList}
                   countTotalEarnings={this.countTotalEarnings}
                   countPercentageOfSupergoal={this.countPercentageOfSupergoal}
+                  superGoalName={this.state.superGoal.name}
                   addTaskToList={this.addTaskToList} />
               }
             }
+            } />
+
+          <Route
+            exact
+            path="/update-supergoal" // the URL used if the user wants to update her SuperGoal
+            render={() =>
+              <SetSuperGoalScreen
+                currentSuperGoal={this.state.superGoal}
+                updateSuperGoalInApp={this.updateSuperGoal} />
             } />
 
         </div>

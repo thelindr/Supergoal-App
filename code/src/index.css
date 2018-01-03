@@ -18,13 +18,13 @@ body {
   margin-right: auto;
 }
 
-.container, .taskListcontainer {
+.container, .listitemcontainer {
   width: 100%;
 }
 
 .btn {
   border-radius: 28px;
-  box-shadow: 0px 3px 0px #8a2d79;
+  box-shadow: 0px 4px 0px #8a2d79;
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   font-size: 15px;
@@ -40,17 +40,19 @@ body {
 }
 
 .btn:hover {
-  background: #efacfe;
+  background: #b53bb6;
+  /*background: #efacfe;*/
   text-decoration: none;
+  box-shadow: 0px 4px 0px #641556;
 }
 
 .btn-delete {
   border-radius: 28px;
-  box-shadow: 0px 3px 0px #8a2d79;
+  box-shadow: 0px 3px 0px #c76ab6;
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   font-size: 12px;
-  background: #f21359;
+  background: #fa7aae;
   padding: 5px 10px 5px 10px;
   border: solid #f21359 0px;
   text-decoration: none;
@@ -62,12 +64,17 @@ body {
 }
 
 .btn-delete:hover {
-  background: #fa7aae;
+  background: #f21359;
+  box-shadow: 0px 3px 0px #8a2d79;
   text-decoration: none;
 }
 
+.settaskcontainer {
+
+}
+
 .setTask {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .taskContainer {
@@ -164,11 +171,17 @@ label, p {
   line-height: 26px;
 }
 
+#superNameKey, #valueKey {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-right: 5px;
+}
+
 input, input:-webkit-autofill,  {
   font-family: 'Dosis', sans-serif;
   font-size: 14px;
   width: 180px;
-  margin: 5px 5px 15px 0;
+  margin: 30px 5px 15px 0;
   background-color: #ffffff;
 }
 
@@ -177,6 +190,7 @@ select, option {
   color: #ffffff;
   font-family: 'Dosis', sans-serif;
   margin-left: 7px;
+  width: 36px;
 }
 
 @media (min-width: 481px) {
@@ -188,16 +202,9 @@ select, option {
     /*flex-grow: 1;*/
   }
 
-  /*.container {
-    justify-content: space-around;
-  }*/
-
-  .taskListcontainer {
+  .listitemcontainer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    /*margin: 0 10px 0 10px;*/
-    /*box-sizing: content-box;*/
-    /*flex-grow: 1;*/
   }
 }

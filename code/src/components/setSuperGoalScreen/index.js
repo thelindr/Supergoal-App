@@ -62,7 +62,7 @@ render() {
             id="valueKey"
             type="number"
             name="value"
-            placeholder="e.g. 3000"
+            placeholder="e.g. 2000"
             value={this.state.superGoalValue}
             onChange={this.handleSuperGoalValueChange} />
           <span>(SEK)</span>

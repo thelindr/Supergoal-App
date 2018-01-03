@@ -18,8 +18,9 @@ export default class SetTask extends React.Component {
   }
 
   handleFormSubmit = event => {
-    event.preventDefault() //1.prevent clearing the page
-    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue) // 2.Updates list in parent
+    event.preventDefault() // 1.prevent clearing the page
+    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue)
+    // 2.Updates list in parent
     this.setState({
       taskName: "",
       taskTimes: "1",
@@ -52,18 +53,18 @@ export default class SetTask extends React.Component {
       <div>
         <form className="setTask" onSubmit={this.handleFormSubmit}>
           <label>
-            Write your task name here:
+            Write the name of a task here:
             <br />
             <input
               type="text"
               name="taskName"
               value={this.state.taskName}
               onChange={this.handleTaskNameChange}
-              placeholder="Write task here" />
+              placeholder="e.g Clean your room" />
           </label>
           <br />
           <label>
-            How many times to be done this week?
+            How many times should this be done per week?
             <select value={this.state.taskTimes} onChange={this.handleTaskTimesChange}>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -76,14 +77,14 @@ export default class SetTask extends React.Component {
           </label>
           <br />
           <label>
-            Write your task value here:
+            Write the value of your task here:
             <br />
             <input
               type="number"
               name="taskValue"
               value={this.state.taskValue}
               onChange={this.handleTaskValueChange}
-              placeholder="Write task value here" />
+              placeholder="e.g 50" />
           </label>
           <br />
 

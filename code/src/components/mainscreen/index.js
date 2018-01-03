@@ -13,7 +13,7 @@ export default class MainScreen extends React.Component {
           // then display them
           <div className="container">
             <h1>My tasks:</h1>
-            <div className="taskListcontainer">
+            <div className="listitemcontainer">
               {this.props.taskList.map(item => (
                 <ListItem
                   key={item.id}
@@ -36,8 +36,10 @@ export default class MainScreen extends React.Component {
           </div>
         }
         {/* SetTask is always displayed if there is a superGoal */}
-        <SetTask
-          addTaskToList={this.props.addTaskToList} />
+        <div className="settaskcontainer">
+          <SetTask
+            addTaskToList={this.props.addTaskToList} />
+        </div>
       </div>
     )
   }

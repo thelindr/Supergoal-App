@@ -1,8 +1,8 @@
-.SetSuperGoalScreen label,
-.SetSuperGoalScreen input {
+/*.SetSuperGoalScreen label,
+.SetSuperGoalScreen input {*/
   /*display: block;*/
-}
+/*}*/
 
-.SetSuperGoalScreen input#valueKey {
+/*.SetSuperGoalScreen input#valueKey {
   display: initial;
-}
+}*/

@@ -24,11 +24,6 @@ export default class ListItem extends React.Component {
             onChange={this.handleCheckboxChange} /> */}
           <h2>{this.props.item.name}</h2>
         </div>
-
-        <div> <p>Done: {this.props.item.counter} / {this.props.item.times}</p></div>
-        <div><p>Value of task: {this.props.item.value} kr </p></div>
-        <div><p>Total earnings for this task: {this.props.item.value * this.props.item.counter} kr</p>
-        </div>
         <button
           className="btn"
           onClick={this.handleDoneButtonClicked}

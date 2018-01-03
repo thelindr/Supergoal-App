@@ -36,7 +36,7 @@ export default class MainScreen extends React.Component {
           </div>
         }
         {/* SetTask is always displayed if there is a superGoal */}
-        <div className="setTaskcontainer">
+        <div className="settaskcontainer">
           <SetTask
             addTaskToList={this.props.addTaskToList} />
         </div>

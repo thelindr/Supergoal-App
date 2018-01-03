@@ -102,21 +102,13 @@ export default class App extends React.Component {
   }
 
   countPercentageOfSupergoal = () => (
-    (this.countTotalEarnings() / this.state.superGoal.value) * 100
+    ((this.countTotalEarnings() / this.state.superGoal.value) * 100).toFixed(2)
   )
 
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-
-          {/* <Route
-            exact
-            path="/set-supergoal"
-            render={() =>
-              <SetSuperGoal
-            updateSuperGoalInApp={this.updateSuperGoal} />
-          } /> */}
 
           <Route
             exact
@@ -137,9 +129,20 @@ export default class App extends React.Component {
                   deleteButtonWasClicked={this.removeTaskFromList}
                   countTotalEarnings={this.countTotalEarnings}
                   countPercentageOfSupergoal={this.countPercentageOfSupergoal}
+                  showTwoDecimals={this.showTwoDecimals}
+                  superGoalName={this.state.superGoal.name}
                   addTaskToList={this.addTaskToList} />
               }
             }
+            } />
+
+          <Route
+            exact
+            path="/update-supergoal" // the URL used if the user wants to update her SuperGoal
+            render={() =>
+              <SetSuperGoalScreen
+                currentSuperGoal={this.state.superGoal}
+                updateSuperGoalInApp={this.updateSuperGoal} />
             } />
 
         </div>

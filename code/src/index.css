@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,700');
 
 body {
   margin: 0;
@@ -6,6 +6,20 @@ body {
   font-family: 'Dosis', sans-serif;
   background-color: #75D8C8;
   text-align: center;
+  color: #232323;
+}
+
+.MainScreen {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container, .taskListcontainer {
+  width: 100%;
 }
 
 .btn {
@@ -14,24 +28,130 @@ body {
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   font-size: 15px;
-  background: #cf5dba;
+  background: #ce5dcf;
   padding: 10px 20px 10px 20px;
-  border: solid #cf5dba 0px;
+  border: solid #ce5dcf 0px;
   text-decoration: none;
-  margin: 10px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn:hover {
-  background: #e084cf;
+  background: #efacfe;
   text-decoration: none;
 }
 
+.btn-delete {
+  border-radius: 28px;
+  box-shadow: 0px 3px 0px #8a2d79;
+  font-family: 'Dosis', sans-serif;
+  color: #ffffff;
+  font-size: 12px;
+  background: #f21359;
+  padding: 5px 10px 5px 10px;
+  border: solid #f21359 0px;
+  text-decoration: none;
+  margin-top: 0;
+  margin-bottom: 20px;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-delete:hover {
+  background: #fa7aae;
+  text-decoration: none;
+}
+
+.setTask {
+  margin-top: 40px;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  width: 80%;
+  box-shadow: 3px 3px 8px #515e5c66;
+}
+
+.moneybag-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  background-color: #f8f8f8;
+  width: 80%;
+}
+
+.moneybag {
+  border-radius: 90%;
+  font-family: 'Dosis', sans-serif;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 700;
+  background: #f4b281;
+  padding: 20px;
+  border: solid #f4b281 0px;
+  width: 15%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.moneybag-top {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 60px solid #f4b281;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -40px;
+  margin-top: 8px;
+}
+
+.moneybag-heading {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #ce5dcf;
+}
+
+.valueOfTask {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.countingDone {
+  margin: 0;
+}
+
+.boldtext {
+  font-weight: 700;
+}
+
 h1 {
-  font-size: 60px;
+  font-size: 48px;
+  margin: 0 0 20px 0;
 }
 
 h2 {
   font-size: 30px;
+  font-weight: 700;
+  margin: 10px 0 10px 0;
 }
 
 h4 {
@@ -41,9 +161,43 @@ h4 {
 
 label, p {
   font-size: 18px;
-  line-height: 24px;
+  line-height: 26px;
 }
 
-input {
+input, input:-webkit-autofill,  {
   font-family: 'Dosis', sans-serif;
+  font-size: 14px;
+  width: 180px;
+  margin: 5px 5px 15px 0;
+  background-color: #ffffff;
+}
+
+select, option {
+  background: #ce5dcf;
+  color: #ffffff;
+  font-family: 'Dosis', sans-serif;
+  margin-left: 7px;
+}
+
+@media (min-width: 481px) {
+  .taskContainer {
+    box-sizing: content-box;
+    width: 46%;
+    margin-left: 2%;
+    margin-right: 2%;
+    /*flex-grow: 1;*/
+  }
+
+  /*.container {
+    justify-content: space-around;
+  }*/
+
+  .taskListcontainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /*margin: 0 10px 0 10px;*/
+    /*box-sizing: content-box;*/
+    /*flex-grow: 1;*/
+  }
 }

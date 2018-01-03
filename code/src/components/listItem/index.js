@@ -16,7 +16,7 @@ export default class ListItem extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="taskContainer">
         <div>
           {/* <input
             type="checkbox"
@@ -24,21 +24,31 @@ export default class ListItem extends React.Component {
             onChange={this.handleCheckboxChange} /> */}
           <h2>{this.props.item.name}</h2>
         </div>
+<<<<<<< HEAD
         <div> <p>Done: {this.props.item.counter} / {this.props.item.times}</p></div>
         <div><p>Value of task: {this.props.item.value} kr </p></div>
         <div><p>Total earnings for this task: {this.props.item.value * this.props.item.counter} kr</p>
         </div>
+=======
+>>>>>>> b4164f7f9e475592b1fc0d31f36be34ee44233fd
         <button
           className="btn"
           onClick={this.handleDoneButtonClicked}
           disabled={this.props.item.times === this.props.item.counter}>
           {/* The button is disabled if the times equals counter */}
-          I’m done!
+          Did it!
         </button>
+        <div><p className="countingDone">Done: <span className="boldtext">{this.props.item.counter}</span> / <span className="boldtext">{this.props.item.times}</span> times</p>
+          <p className="valueOfTask">Value of this task: {this.props.item.value} kr</p>
+        </div>
+        <div className="moneybag-container"><h4 className="moneybag-heading">Total earnings for this task:</h4>
+          <p className="moneybag-top" />
+          <p className="moneybag"> {this.props.item.value * this.props.item.counter} kr</p>
+        </div>
         <button
-          className="btn"
+          className="btn-delete"
           onClick={this.handleDeleteButtonClicked}>
-          Delete
+          Delete task
         </button>
       </div>
     )

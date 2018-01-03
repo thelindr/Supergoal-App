@@ -1,4 +1,5 @@
 import React from "react"
+import createHistory from "history/createBrowserHistory"
 import "./style.css"
 
 export default class SetSuperGoalScreen extends React.Component {
@@ -34,6 +35,8 @@ export default class SetSuperGoalScreen extends React.Component {
 
 handleFormSubmit = event => {
   event.preventDefault()
+  createHistory().push("/") // FIX
+  console.log(createHistory().location.pathname) // FIX
   this.props.updateSuperGoalInApp(this.state.superGoalName, this.state.superGoalValue)
 }
 

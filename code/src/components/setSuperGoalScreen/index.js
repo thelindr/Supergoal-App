@@ -1,6 +1,6 @@
 import React from "react"
 
-export default class SetSuperGoal extends React.Component {
+export default class SetSuperGoalScreen extends React.Component {
 
   constructor(props) {
     super(props)

@@ -1,11 +1,8 @@
 import React from "react"
 import uuid from "uuid/v4"
 import { BrowserRouter, Route } from "react-router-dom"
-// import Mainscreen from "./mainscreen"
-
-import SetSuperGoal from "./setSuperGoal"
-import SetTask from "./setTask"
-import ListItem from "./listItem"
+import MainScreen from "./mainScreen"
+import SetSuperGoalScreen from "./setSuperGoalScreen"
 
 export default class App extends React.Component {
 
@@ -123,34 +120,14 @@ export default class App extends React.Component {
             path="/" // if the URL matches '/' exactly
             render={() => { // then render
               if (this.state.superGoal.value === null) { // if there is no superGoal
-                return <SetSuperGoal
+                return <SetSuperGoalScreen
                   updateSuperGoalInApp={this.updateSuperGoal} />
               } else { // else
-                return <div>
-                  {this.state.taskList.length > 0 && // if there are items in the taskList,
-                    // display them
-                    <div>
-                      <h1>My tasks:</h1>
-                      {this.state.taskList.map(item => (
-                        <ListItem
-                          key={item.id}
-                          id={item.id}
-                          item={item}
-                          doneButtonWasClicked={this.updateCounter}
-                          deleteButtonWasClicked={this.removeTaskFromList} />
-                      ))}
-                    </div>
-                  }
-                  {/* SetTask is always displayed if there is a superGoal */}
-                  <SetTask
-                    addTaskToList={this.addTaskToList} />
-
-                  {/* <h4>Wow, you&apos;ve earned: {this.countTotalEarnings()} kronor</h4>
-                    <h4>You&apos;ve earned {this.countPercentageOfSupergoal()} &#37;
-                    of your supergoal
-                  </h4> */}
-                  
-                </div>
+                return <MainScreen
+                  taskList={this.state.taskList}
+                  doneButtonWasClicked={this.updateCounter}
+                  deleteButtonWasClicked={this.removeTaskFromList}
+                  addTaskToList={this.addTaskToList} />
               }
             }
             } />

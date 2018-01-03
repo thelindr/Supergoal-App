@@ -24,16 +24,19 @@ export default class ListItem extends React.Component {
             onChange={this.handleCheckboxChange} /> */}
           <h2>{this.props.item.name}</h2>
         </div>
-        <div>Done: {this.props.item.counter} / {this.props.item.times}</div>
-        <div>Value of task: {this.props.item.value}</div>
-        <div>Total earnings for this task: {this.props.item.value * this.props.item.counter}</div>
+        <div> <p>Done: {this.props.item.counter} / {this.props.item.times}</p></div>
+        <div><p>Value of task: {this.props.item.value}</p></div>
+        <div><p>Total earnings for this task: {this.props.item.value * this.props.item.counter}</p>
+        </div>
         <button
+          className="btn"
           onClick={this.handleDoneButtonClicked}
           disabled={this.props.item.times === this.props.item.counter}>
           {/* The button is disabled if the times equals counter */}
           I’m done!
         </button>
         <button
+          className="btn"
           onClick={this.handleDeleteButtonClicked}>
           Delete
         </button>

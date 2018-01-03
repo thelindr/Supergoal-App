@@ -30,6 +30,14 @@ handleFormSubmit = event => {
 render() {
   return (
     <div>
+
+      {this.props.superGoal.value === null &&
+        <div>
+          <h2>Welcome!</h2>
+          <p>First of all, set up your SuperGoal!</p>
+        </div>
+      }
+
       <form onSubmit={this.handleFormSubmit}>
 
         <label htmlFor="superNameKey">My Massively cool Super Goal:</label>

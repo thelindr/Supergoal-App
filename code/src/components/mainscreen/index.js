@@ -7,8 +7,9 @@ export default class MainScreen extends React.Component {
   render() {
     return (
       <div className="MainScreen">
-        {this.props.taskList.length > 0 && // if there are items in the taskList,
-          // display them
+        {this.props.taskList.length > 0 && // if there are items in the latest
+          // updated taskList (passed on from the app/parent state via props),
+          // then display them
           <div>
             <h1>My tasks:</h1>
             {this.props.taskList.map(item => (

@@ -17,6 +17,13 @@ export default class App extends React.Component {
     }
   }
 
+  componentWillMount() {
+    if (localStorage.getItem("superGoalAppData")) {
+      this.setState(JSON.parse(localStorage.getItem("superGoalAppData")))
+    }
+  }
+  // Here we parse (change the string back to an object) the localstorage from addTaskToList
+
   updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
     // console.log("parent function was invoked")
     this.setState({
@@ -26,13 +33,6 @@ export default class App extends React.Component {
       }
     }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
   }
-
-  componentWillMount() {
-    if (localStorage.getItem("superGoalAppData")) {
-      this.setState(JSON.parse(localStorage.getItem("superGoalAppData")))
-    }
-  }
-  // Here we parse (change the string back to an object) the localstorage from addTaskToList
 
   addTaskToList = (taskName, taskTimes, taskValue) => {
     const taskObject = {
@@ -120,13 +120,17 @@ export default class App extends React.Component {
             path="/" // if the URL matches '/' exactly
             render={() => { // then render
               if (this.state.superGoal.value === null) { // if there is no superGoal
-                return <SetSuperGoalScreen
-                  updateSuperGoalInApp={this.updateSuperGoal} />
-              } else { // else
+                return <SetSuperGoalScreen // then display the SetSuperGoalScreen
+                  updateSuperGoalInApp={this.updateSuperGoal} /> // the callback function located
+                // in this component, will be invoked
+                // when the superGoal is setup
+              } else { // else display the MainScreen
                 return <MainScreen
-                  taskList={this.state.taskList}
+                  taskList={this.state.taskList} // pass on the last update of
+                  // the taskList (in the state) in the props
                   doneButtonWasClicked={this.updateCounter}
-                  deleteButtonWasClicked={this.removeTaskFromList}
+                  deleteButtonWasClicked={this.removeTaskFromList} // these three callback functions
+                  // are located in this component. They are passed on as props.
                   addTaskToList={this.addTaskToList} />
               }
             }

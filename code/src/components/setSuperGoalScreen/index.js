@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import createHistory from "history/createBrowserHistory"
 import "./style.css"
 
@@ -96,6 +97,10 @@ render() {
             onChange={this.handleSuperGoalValueChange} />
           <span>(SEK)</span>
         </div>
+
+        {this.checkCurrentSuperGoal() &&
+          <Link className="btn" to="/">Cancel</Link>
+        }
 
         <input className="btn" type="submit" value={!this.checkCurrentSuperGoal() ? "Save" : "Update"} />
 

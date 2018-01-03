@@ -23,7 +23,7 @@ export default class SetSuperGoalScreen extends React.Component {
   }
 
 handleFormSubmit = event => {
-  // console.log("submit")
+  // console.log("submit") clears the data from
   event.preventDefault()
   this.props.updateSuperGoalInApp(this.state.superGoalName, this.state.superGoalValue)
 }

@@ -133,6 +133,7 @@ export default class App extends React.Component {
                   deleteButtonWasClicked={this.removeTaskFromList}
                   countTotalEarnings={this.countTotalEarnings}
                   countPercentageOfSupergoal={this.countPercentageOfSupergoal}
+                  superGoalName={this.state.superGoal.name}
                   addTaskToList={this.addTaskToList} />
               }
             }

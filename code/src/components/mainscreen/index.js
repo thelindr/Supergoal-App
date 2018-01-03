@@ -5,6 +5,7 @@ import ListItem from "./../listItem"
 export default class MainScreen extends React.Component {
 
   render() {
+    console.log(this.props.superGoal)
     return (
       <div className="MainScreen">
         {this.props.taskList.length > 0 && // if there are items in the latest
@@ -25,10 +26,11 @@ export default class MainScreen extends React.Component {
         {this.props.countTotalEarnings() > 0 && // if there are any earnings
           // then display the total earnings and the percentage of the supergoal
           <div>
-            <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor</h4>
-            <h4>You&apos;ve earned {this.props.countPercentageOfSupergoal()} &#37;
-              of your supergoal
-            </h4>
+            <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor!</h4>
+            <h4>That means you are {this.props.countPercentageOfSupergoal()} &#37;
+              closer to get your {this.props.superGoalName} !!!</h4>
+
+
           </div>
         }
         {/* SetTask is always displayed if there is a superGoal */}

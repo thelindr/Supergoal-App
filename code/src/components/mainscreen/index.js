@@ -28,8 +28,8 @@ export default class MainScreen extends React.Component {
           <div>
             <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor!</h4>
             <h4>That means you are {this.props.countPercentageOfSupergoal()} &#37;
-              closer to get your {this.props.superGoalName} !!!</h4>
-
+              closer to get your {this.props.superGoalName} !!!
+            </h4>
 
           </div>
         }

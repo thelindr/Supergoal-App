@@ -56,22 +56,22 @@ render() {
           </p>
         </div>
       ) : (
-        <div>
+        <div className="updatesupergoalcontainer">
           <h2>Update your SuperGoal</h2>
           <p>Your current SuperGoal is
-            <br /><em>{this.props.currentSuperGoal.name}</em>
+            <br /><span className="bolditalictext">{this.props.currentSuperGoal.name}</span>
           </p>
           <p>with the required amount
-            <br /><em>{this.props.currentSuperGoal.value} SEK</em>
+            <br /><span className="bolditalictext">{this.props.currentSuperGoal.value} SEK</span>
           </p>
-          <p>
+          {/* <p>
             <span className="boldtext">You can update your settings here:</span>
-          </p>
+          </p> */}
         </div>
       )
       }
 
-      <form onSubmit={this.handleFormSubmit}>
+      <form className="setsupergoalcontainer" onSubmit={this.handleFormSubmit}>
 
         <label htmlFor="superNameKey">What do you want to save money for?</label>
         <br />

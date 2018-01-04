@@ -77,6 +77,7 @@ render() {
           id="superNameKey"
           type="text"
           name="superGoalName"
+          required
           placeholder={!this.checkCurrentSuperGoal() ? "e.g. Skateboard" : ""}
           value={this.state.superGoalName}
           onChange={this.handleSuperGoalNameChange} />
@@ -90,6 +91,7 @@ render() {
             id="valueKey"
             type="number"
             name="value"
+            required
             placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000" : ""}
             value={this.state.superGoalValue}
             onChange={this.handleSuperGoalValueChange} />

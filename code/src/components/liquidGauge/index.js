@@ -17,17 +17,18 @@ export default class LiquidGauge extends React.Component {
     }
   }
 
-    startColor = "#ce5dcf"
+    startColor = "#e372e4"
     endColor = "#8a2d79"
 
     render() {
-      const radius = 200
+      const endColor = "#8a2d79"
+      const radius = 100
       const interpolate = interpolateRgb(this.startColor, this.endColor)
-      const fillColor = interpolate(this.state.value / 100)
+      const fillColor = interpolate(this.state.value / 1000)
       const gradientStops = [
         {
           key: "0%",
-          stopColor: color(fillColor).darker(0.1).toString(),
+          stopColor: color(fillColor).darker(0.05).toString(),
           stopOpacity: 1,
           offset: "0%"
         },
@@ -38,15 +39,21 @@ export default class LiquidGauge extends React.Component {
           offset: "50%"
         },
         {
-          key: "100%",
-          stopColor: color(fillColor).brighter(0.1).toString(),
+          key: "99%",
+          stopColor: color(fillColor).brighter(0.05).toString(),
           stopOpacity: 0.5,
+          offset: "99%"
+        },
+        {
+          key: "100%",
+          stopColor: fillColor,
+          stopOpacity: 0,
           offset: "100%"
         }
       ]
 
       return (
-        <div>
+        <div className="liquid-gauge">
           <LiquidFillGauge
             style={{ margin: "0 auto" }}
             width={radius * 2}
@@ -94,11 +101,11 @@ export default class LiquidGauge extends React.Component {
               fill: color("#fff").toString(),
               fontFamily: "Dosis"
             }} />
-          <div
+          {/* <div
             style={{
               margin: "20px auto",
               width: 120
-            }} />
+            }} /> */}
         </div>
       )
     }

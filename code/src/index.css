@@ -122,6 +122,15 @@ body {
   box-sizing: border-box;
 }
 
+.liquid-gauge {
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+
 .updatesupergoalcontainer {
   width: 80%;
   margin-left: 10%;

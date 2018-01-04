@@ -115,7 +115,7 @@ export default class App extends React.Component {
   }
 
   countPercentageOfSupergoal = () => (
-    ((this.countTotalEarnings() / this.state.superGoal.value) * 100).toFixed(2)
+    ((this.countTotalEarnings() / this.state.superGoal.value) * 100)
   )
 
   render() {

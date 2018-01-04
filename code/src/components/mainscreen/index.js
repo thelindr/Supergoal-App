@@ -3,6 +3,7 @@ import React from "react"
 import SetTask from "./../setTask"
 import ListItem from "./../listItem"
 import LiquidGauge from "./../liquidGauge"
+import numberToStringWithComma from "./../../numberToStringWithComma"
 
 export default class MainScreen extends React.Component {
 
@@ -36,8 +37,8 @@ export default class MainScreen extends React.Component {
           <div className="earningscontainer">
             <LiquidGauge
               percentageOfSupergoal={this.props.countPercentageOfSupergoal()} />
-            <h4>Wow, you&apos;ve earned: <span className="boldtext">{this.props.countTotalEarnings()} kronor!</span></h4>
-            <p>That means you are <span className="bolditalictext"> {this.props.countPercentageOfSupergoal()} &#37; </span>
+            <h4>Wow, you&apos;ve earned: <span className="boldtext">{numberToStringWithComma(this.props.countTotalEarnings())} kronor!</span></h4>
+            <p>That means you are <span className="bolditalictext"> {numberToStringWithComma(this.props.countPercentageOfSupergoal())} &#37; </span>
               closer to get your <span className="bolditalictext">{this.props.superGoalName} !!!</span>
             </p>
 

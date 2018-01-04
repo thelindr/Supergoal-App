@@ -29,9 +29,15 @@ export default class SetSuperGoalScreen extends React.Component {
   }
 
   handleSuperGoalValueChange = event => {
-    this.setState({
-      superGoalValue: event.target.value
-    })
+    if (parseFloat(event.target.value) > 0) {
+      this.setState({
+        superGoalValue: event.target.value
+      })
+    } else if (event.target.value === "") {
+      this.setState({
+        superGoalValue: ""
+      })
+    }
   }
 
 handleFormSubmit = event => {
@@ -77,6 +83,7 @@ render() {
           id="superNameKey"
           type="text"
           name="superGoalName"
+          required
           placeholder={!this.checkCurrentSuperGoal() ? "e.g. Skateboard" : ""}
           value={this.state.superGoalName}
           onChange={this.handleSuperGoalNameChange} />
@@ -90,6 +97,7 @@ render() {
             id="valueKey"
             type="number"
             name="value"
+            required
             placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000" : ""}
             value={this.state.superGoalValue}
             onChange={this.handleSuperGoalValueChange} />

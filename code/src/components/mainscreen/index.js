@@ -44,7 +44,10 @@ export default class MainScreen extends React.Component {
           </div>
         }
         {/* SetTask is always displayed if there is a superGoal */}
-        <Link className="changeGoal" to="/set-supergoal">Do you want to change your SuperGoal?</Link>
+
+        {/* <Link className="changeGoal" to="/set-supergoal">Do you want
+        to change your SuperGoal?</Link> */}
+
       </div>
     )
   }

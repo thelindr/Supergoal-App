@@ -80,6 +80,7 @@ render() {
         <label htmlFor="superNameKey">What do you want to save money for?</label>
         <br />
         <input
+          className="styleinputfield"
           id="superNameKey"
           type="text"
           name="superGoalName"
@@ -94,6 +95,7 @@ render() {
         <br />
         <div>
           <input
+            className="styleinputfield"
             id="valueKey"
             type="number"
             name="value"

@@ -305,12 +305,17 @@ input {
   font-size: 14px;
   width: 180px;
   margin: 7px 5px 15px 0;
-  background-color: #ffffff;
+  font-style: italic;
+  padding-left: 5px;
+}
+
+input.styleinputfield {
   height: 24px;
 }
 
-input[placeholder] {
-  font-style: italic;
+input:valid {
+  font-style: normal;
+  padding-left: 5px;
 }
 
 select {

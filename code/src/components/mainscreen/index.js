@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import SetTask from "./../setTask"
 import ListItem from "./../listItem"
+import LiquidGauge from "./../liquidGauge"
 
 export default class MainScreen extends React.Component {
 
@@ -29,6 +30,7 @@ export default class MainScreen extends React.Component {
         {this.props.countTotalEarnings() > 0 && // if there are any earnings
           // then display the total earnings and the percentage of the supergoal
           <div className="earningscontainer">
+            <LiquidGauge />
             <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor!</h4>
             <h4>That means you are {this.props.countPercentageOfSupergoal()} &#37;
               closer to get your {this.props.superGoalName} !!!

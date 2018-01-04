@@ -21,7 +21,7 @@ export default class LiquidGauge extends React.Component {
     endColor = "#8a2d79"
 
     render() {
-      const radius = 200
+      const radius = 100
       const interpolate = interpolateRgb(this.startColor, this.endColor)
       const fillColor = interpolate(this.state.value / 100)
       const gradientStops = [

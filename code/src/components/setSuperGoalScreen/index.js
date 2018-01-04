@@ -98,10 +98,9 @@ render() {
             type="number"
             name="value"
             required
-            placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000" : ""}
+            placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000 kr" : ""}
             value={this.state.superGoalValue}
             onChange={this.handleSuperGoalValueChange} />
-          <span>(SEK)</span>
         </div>
 
         {this.checkCurrentSuperGoal() &&

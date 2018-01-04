@@ -52,7 +52,8 @@ export default class SetTask extends React.Component {
       <div>
         <form className="setTask" onSubmit={this.handleFormSubmit}>
           <label>
-            Write the name of a task here:
+            <h2>Add a task</h2>
+            Name your task:
             <br />
             <input
               type="text"
@@ -77,7 +78,7 @@ export default class SetTask extends React.Component {
           </label>
           <br />
           <label>
-            Write the value of your task here:
+            Value of the task:
             <br />
             <input
               type="number"

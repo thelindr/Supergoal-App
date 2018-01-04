@@ -4,12 +4,21 @@ import React from "react"
 import LiquidFillGauge from "react-liquid-gauge"
 
 export default class LiquidGauge extends React.Component {
-    state = {
-      value: 50
-      // NEEDS TO BE {this.props.countPercentageOfSupergoal()}
-    };
-    startColor = "#6495ed"; // cornflowerblue
-    endColor = "#dc143c"; // crimson
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: this.props.percentageOfSupergoal
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props) {
+      this.setState({ value: nextProps.percentageOfSupergoal })
+    }
+  }
+
+    startColor = "#ce5dcf"
+    endColor = "#8a2d79"
 
     render() {
       const radius = 200
@@ -18,7 +27,7 @@ export default class LiquidGauge extends React.Component {
       const gradientStops = [
         {
           key: "0%",
-          stopColor: color(fillColor).darker(0.5).toString(),
+          stopColor: color(fillColor).darker(0.1).toString(),
           stopOpacity: 1,
           offset: "0%"
         },
@@ -30,7 +39,7 @@ export default class LiquidGauge extends React.Component {
         },
         {
           key: "100%",
-          stopColor: color(fillColor).brighter(0.5).toString(),
+          stopColor: color(fillColor).brighter(0.1).toString(),
           stopOpacity: 0.5,
           offset: "100%"
         }
@@ -48,9 +57,9 @@ export default class LiquidGauge extends React.Component {
             textOffsetX={0}
             textOffsetY={0}
             textRenderer={props => {
-              const value = Math.round(props.value)
-              const radius = Math.min(props.height / 2, props.width / 2)
-              const textPixels = ((props.textSize * radius) / 2)
+              // const value = Math.round(this.state.value)
+              const localradius = Math.min(props.height / 2, props.width / 2)
+              const textPixels = ((props.textSize * localradius) / 2)
               const valueStyle = {
                 fontSize: textPixels
               }
@@ -60,7 +69,7 @@ export default class LiquidGauge extends React.Component {
 
               return (
                 <tspan>
-                  <tspan className="value" style={valueStyle}>{value}</tspan>
+                  <tspan className="value" style={valueStyle}>{Math.round(this.state.value)}</tspan>
                   <tspan style={percentStyle}>{props.percent}</tspan>
                 </tspan>
               )
@@ -79,14 +88,11 @@ export default class LiquidGauge extends React.Component {
             }}
             textStyle={{
               fill: color("#b53bb6").toString(),
-              fontFamily: "Arial"
+              fontFamily: "Dosis"
             }}
             waveTextStyle={{
               fill: color("#fff").toString(),
-              fontFamily: "Arial"
-            }}
-            onClick={() => {
-              this.setState({ value: Math.random() * 100 })
+              fontFamily: "Dosis"
             }} />
           <div
             style={{

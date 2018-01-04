@@ -14,7 +14,7 @@ export default class MainScreen extends React.Component {
           // updated taskList (passed on from the app/parent state via props),
           // then display them
           <div className="container">
-            <h1>My tasks:</h1>
+            {/* <h1>My tasks:</h1> */}
             <div className="listitemcontainer">
               {this.props.taskList.map(item => (
                 <ListItem
@@ -27,10 +27,15 @@ export default class MainScreen extends React.Component {
             </div>
           </div>
         }
+        <div className="settaskcontainer">
+          <SetTask
+            addTaskToList={this.props.addTaskToList} />
+        </div>
         {this.props.countTotalEarnings() > 0 && // if there are any earnings
           // then display the total earnings and the percentage of the supergoal
           <div className="earningscontainer">
-            <LiquidGauge />
+            <LiquidGauge
+              percentageOfSupergoal={this.props.countPercentageOfSupergoal()} />
             <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor!</h4>
             <h4>That means you are {this.props.countPercentageOfSupergoal()} &#37;
               closer to get your {this.props.superGoalName} !!!
@@ -39,10 +44,6 @@ export default class MainScreen extends React.Component {
           </div>
         }
         {/* SetTask is always displayed if there is a superGoal */}
-        <div className="settaskcontainer">
-          <SetTask
-            addTaskToList={this.props.addTaskToList} />
-        </div>
         <Link className="changeGoal" to="/set-supergoal">Do you want to change your SuperGoal?</Link>
       </div>
     )

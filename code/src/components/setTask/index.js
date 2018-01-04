@@ -88,11 +88,15 @@ export default class SetTask extends React.Component {
               name="taskValue"
               value={this.state.taskValue}
               onChange={this.handleTaskValueChange}
-              placeholder="e.g 50" />
+              placeholder="e.g 50 kr" />
           </label>
           <br />
 
-          <button className="btn-add" type="submit">Add task</button>
+          <button
+            className="btn-add"
+            type="submit">
+            Add task
+          </button>
 
         </form>
       </div>

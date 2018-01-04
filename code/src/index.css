@@ -336,7 +336,13 @@ select {
   width: 40px;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 481px) and (max-width: 899px) {
+  .container {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .taskContainer {
     box-sizing: content-box;
     width: 46%;
@@ -347,12 +353,47 @@ select {
 
   .listitemcontainer {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
   }
 
   .earningscontainer, .settaskcontainer {
     width: 46%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background: #2f9e9c;
+    border-radius: 20px;
+    padding: 2%;
+    color: #ffffff;
+  }
+
+  .setTask {
+    margin-top: 5px;
+  }
+}
+
+@media (min-width: 900px) {
+  .taskContainer {
+    box-sizing: content-box;
+    width: 29%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+
+  .container {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .listitemcontainer {
+    display: flex;
+    /*justify-content: space-around;*/
+    flex-wrap: wrap;
+  }
+
+  .earningscontainer, .settaskcontainer {
+    width: 29%;
     margin-left: 2%;
     margin-right: 2%;
     background: #2f9e9c;

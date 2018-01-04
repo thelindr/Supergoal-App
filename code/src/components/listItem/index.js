@@ -25,9 +25,8 @@ export default class ListItem extends React.Component {
           <h2>{this.props.item.name}</h2>
         </div>
         <button
-          className="btn"
-          onClick={this.handleDoneButtonClicked}
-          disabled={this.props.item.times === this.props.item.counter}>
+          className={this.props.item.times === this.props.item.counter ? "btn-disabled" : "btn"}
+          onClick={this.handleDoneButtonClicked}>
           {/* The button is disabled if the times equals counter */}
           Did it!
         </button>

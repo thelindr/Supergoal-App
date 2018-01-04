@@ -106,7 +106,7 @@ export default class App extends React.Component {
       }
       return item
     })
-    if (indexToMove) {
+    if (indexToMove !== null) {
       updatedListOfTasks = updatedListOfTasks.concat(updatedListOfTasks.splice(indexToMove, 1))
     }
     this.setState({

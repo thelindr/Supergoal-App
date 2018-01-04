@@ -8,7 +8,6 @@ import numberToStringWithComma from "./../../numberToStringWithComma"
 export default class MainScreen extends React.Component {
 
   render() {
-    console.log(this.props.superGoal)
     return (
       <div className="MainScreen">
         {this.props.taskList.length > 0 && // if there are items in the latest

@@ -49,7 +49,7 @@ render() {
 
       {!this.checkCurrentSuperGoal() ? (
         <div>
-          <h2>Welcome!</h2>
+          <h1>Welcome!</h1>
           <p>First of all, set up your SuperGoal!
           </p>
         </div>

@@ -41,7 +41,7 @@ export default class MainScreen extends React.Component {
           <SetTask
             addTaskToList={this.props.addTaskToList} />
         </div>
-        <Link to="/update-supergoal">Do you want to change your SuperGoal?</Link>
+        <Link className="changeGoal" to="/update-supergoal">Do you want to change your SuperGoal?</Link>
       </div>
     )
   }

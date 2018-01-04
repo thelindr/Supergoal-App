@@ -57,7 +57,7 @@ render() {
         </div>
       ) : (
         <div>
-          <h2>Update SuperGoal</h2>
+          <h2>Update your SuperGoal</h2>
           <p>Your current SuperGoal is
             <br /><em>{this.props.currentSuperGoal.name}</em>
           </p>
@@ -65,7 +65,7 @@ render() {
             <br /><em>{this.props.currentSuperGoal.value} SEK</em>
           </p>
           <p>
-            You can update your settings here:
+            <span className="boldtext">You can update your settings here:</span>
           </p>
         </div>
       )
@@ -99,7 +99,7 @@ render() {
         </div>
 
         {this.checkCurrentSuperGoal() &&
-          <Link className="btn" to="/">Cancel</Link>
+          <Link className="btn-cancel" to="/">Cancel</Link>
         }
 
         <input className="btn" type="submit" value={!this.checkCurrentSuperGoal() ? "Save" : "Update"} />

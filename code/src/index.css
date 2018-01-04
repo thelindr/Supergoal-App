@@ -69,6 +69,29 @@ body {
   text-decoration: none;
 }
 
+.btn-cancel {
+  border-radius: 28px;
+  box-shadow: 0px 4px 0px #c76ab6;
+  font-family: 'Dosis', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: #fa7aae;
+  padding: 10px 20px 10px 20px;
+  border: solid #fa7aae 0px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.btn-cancel:hover {
+  background: #f21359;
+  box-shadow: 0px 3px 0px #8a2d79;
+  text-decoration: none;
+}
+
 .earningscontainer, .settaskcontainer {
   width: 80%;
   margin-left: 10%;
@@ -77,7 +100,8 @@ body {
   border-radius: 20px;
   padding: 3%;
   color: #ffffff;
-  flex-grow: 1;
+  /*flex-grow: 1;*/
+  margin-top: 20px;
 }
 
 .setTask {
@@ -87,10 +111,10 @@ body {
 .taskContainer {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  /*flex-grow: 1;*/
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   background-color: #ffffff;
   width: 80%;
   box-shadow: 3px 3px 8px #515e5c66;
@@ -117,7 +141,7 @@ body {
   background: #f4b281;
   padding: 20px;
   border: solid #f4b281 0px;
-  width: 15%;
+  width: 20%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -155,6 +179,31 @@ body {
 
 .boldtext {
   font-weight: 700;
+}
+
+.changeGoal {
+  border-radius: 28px;
+  box-shadow: 0px 4px 0px #7f2900;
+  font-family: 'Dosis', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: #ff9e23;
+  padding: 10px 20px 10px 20px;
+  border: solid #ff9e23 0px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 200px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+.changeGoal:hover {
+  background:#ee8502;
+  /*background: #efacfe;*/
+  text-decoration: none;
+  box-shadow: 0px 4px 0px #7f2900;
 }
 
 h1 {
@@ -202,7 +251,7 @@ select {
 
 @media (min-width: 481px) {
   .MainScreen {
-    flex-grow: 1;
+    /*flex-grow: 1;*/
   }
 
   .taskContainer {
@@ -210,7 +259,6 @@ select {
     width: 46%;
     margin-left: 2%;
     margin-right: 2%;
-    /*flex-grow: 1;*/
   }
 
   .listitemcontainer {

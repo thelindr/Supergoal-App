@@ -1,7 +1,6 @@
 import React from "react"
 import uuid from "uuid/v4"
 import { BrowserRouter, Route } from "react-router-dom"
-// import createHistory from "history/createBrowserHistory"
 import MainScreen from "./mainScreen"
 import SetSuperGoalScreen from "./setSuperGoalScreen"
 

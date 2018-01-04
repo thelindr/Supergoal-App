@@ -3,6 +3,7 @@ import uuid from "uuid/v4"
 import { BrowserRouter, Route } from "react-router-dom"
 import MainScreen from "./mainScreen"
 import SetSuperGoalScreen from "./setSuperGoalScreen"
+import Header from "./header"
 
 export default class App extends React.Component {
 
@@ -125,6 +126,7 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <Header />
 
           <Route
             exact

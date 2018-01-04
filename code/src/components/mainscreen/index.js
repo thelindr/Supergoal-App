@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import SetTask from "./../setTask"
 import ListItem from "./../listItem"
 
@@ -40,6 +41,7 @@ export default class MainScreen extends React.Component {
           <SetTask
             addTaskToList={this.props.addTaskToList} />
         </div>
+        <Link className="changeGoal" to="/update-supergoal">Do you want to change your SuperGoal?</Link>
       </div>
     )
   }

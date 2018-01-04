@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import createHistory from "history/createBrowserHistory"
 import "./style.css"
 
 export default class SetSuperGoalScreen extends React.Component {
@@ -34,6 +36,8 @@ export default class SetSuperGoalScreen extends React.Component {
 
 handleFormSubmit = event => {
   event.preventDefault()
+  createHistory().push("/") // FIX
+  console.log(createHistory().location.pathname) // FIX
   this.props.updateSuperGoalInApp(this.state.superGoalName, this.state.superGoalValue)
 }
 
@@ -53,7 +57,7 @@ render() {
         </div>
       ) : (
         <div>
-          <h2>Update SuperGoal</h2>
+          <h2>Update your SuperGoal</h2>
           <p>Your current SuperGoal is
             <br /><em>{this.props.currentSuperGoal.name}</em>
           </p>
@@ -61,7 +65,7 @@ render() {
             <br /><em>{this.props.currentSuperGoal.value} SEK</em>
           </p>
           <p>
-            You can update your settings here:
+            <span className="boldtext">You can update your settings here:</span>
           </p>
         </div>
       )
@@ -93,6 +97,10 @@ render() {
             onChange={this.handleSuperGoalValueChange} />
           <span>(SEK)</span>
         </div>
+
+        {this.checkCurrentSuperGoal() &&
+          <Link className="btn-cancel" to="/">Cancel</Link>
+        }
 
         <input className="btn" type="submit" value={!this.checkCurrentSuperGoal() ? "Save" : "Update"} />
 

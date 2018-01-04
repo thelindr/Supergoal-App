@@ -24,8 +24,23 @@ export default class App extends React.Component {
   }
   // Here we parse (change the string back to an object) the localstorage from addTaskToList
 
+  // FIX
+  // componentWillUpdate() {
+  //   console.log("componentWillUpdate")
+  //   const history = createHistory()
+  //   if (history.location.pathname === "/update-supergoal" ||
+  //     history.location.pathname === "/update-supergoal/") {
+  //     console.log("Found the URL")
+  //     history.replace("/")
+  //     console.log("URL push")
+  //   }
+  // }
+
   updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
-    // console.log("parent function was invoked")
+    // FIX
+    // if (location === "update-supergoal") {
+    //   createHistory().push("/")
+    // }
     this.setState({
       superGoal: {
         name: newSuperGoalName,
@@ -106,6 +121,7 @@ export default class App extends React.Component {
   )
 
   render() {
+    console.log("App render")
     return (
       <BrowserRouter>
         <div className="App">
@@ -149,5 +165,4 @@ export default class App extends React.Component {
       </BrowserRouter>
     )
   }
-
 }

@@ -29,9 +29,15 @@ export default class SetSuperGoalScreen extends React.Component {
   }
 
   handleSuperGoalValueChange = event => {
-    this.setState({
-      superGoalValue: event.target.value
-    })
+    if (parseFloat(event.target.value) > 0) {
+      this.setState({
+        superGoalValue: event.target.value
+      })
+    } else if (event.target.value === "") {
+      this.setState({
+        superGoalValue: ""
+      })
+    }
   }
 
 handleFormSubmit = event => {

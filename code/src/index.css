@@ -71,7 +71,7 @@ body {
 
 .btn-cancel {
   border-radius: 28px;
-  box-shadow: 0px 4px 0px #c76ab6;
+  box-shadow: 0px 4px 0px #c44c81;
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   font-size: 15px;
@@ -88,11 +88,11 @@ body {
 
 .btn-cancel:hover {
   background: #f21359;
-  box-shadow: 0px 3px 0px #8a2d79;
+  box-shadow: 0px 4px 0px #8a2d79;
   text-decoration: none;
 }
 
-.earningscontainer, .settaskcontainer {
+.earningscontainer, .settaskcontainer, .setsupergoalcontainer {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
@@ -102,10 +102,24 @@ body {
   color: #ffffff;
   /*flex-grow: 1;*/
   margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.updatesupergoalcontainer {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #0a7a78;
+  border-radius: 20px;
+  padding: 3%;
+  color: #ffffff;
+  /*flex-grow: 1;*/
+  margin-top: 20px;
+  box-sizing: border-box;
 }
 
 .setTask {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .taskContainer {
@@ -132,6 +146,15 @@ body {
   width: 80%;
 }
 
+@keyframes size {
+  0%, 100% {
+    width: 10vw;
+  }
+  50% {
+    width: 11vw;
+  }
+}
+
 .moneybag {
   border-radius: 90%;
   font-family: 'Dosis', sans-serif;
@@ -141,12 +164,29 @@ body {
   background: #f4b281;
   padding: 20px;
   border: solid #f4b281 0px;
-  width: 20%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
   margin-top: 0;
+}
+
+.moneybag-add {
+  border-radius: 90%;
+  font-family: 'Dosis', sans-serif;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 700;
+  background: #f4b281;
+  padding: 20px;
+  border: solid #f4b281 0px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 0;
+  animation:
+    size 0.4s ease-in-out;
 }
 
 .moneybag-top {
@@ -181,6 +221,13 @@ body {
   font-weight: 700;
 }
 
+.bolditalictext {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 30px;
+}
+
 .changeGoal {
   border-radius: 28px;
   box-shadow: 0px 4px 0px #7f2900;
@@ -192,7 +239,7 @@ body {
   border: solid #ff9e23 0px;
   text-decoration: none;
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 200px;
   height: 40px;
   margin-left: auto;
@@ -268,7 +315,7 @@ select {
   }
 
   .earningscontainer, .settaskcontainer {
-    width: 42%;
+    width: 46%;
     margin-left: 2%;
     margin-right: 2%;
     background: #2f9e9c;

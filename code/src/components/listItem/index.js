@@ -36,7 +36,7 @@ export default class ListItem extends React.Component {
         </div>
         <div className="moneybag-container"><h4 className="moneybag-heading">Total earnings for this task:</h4>
           <p className="moneybag-top" />
-          <p className="moneybag"> {this.props.item.value * this.props.item.counter} kr</p>
+          <p className={this.props.item.counter ? "moneybag-add" : "moneybag"}> {this.props.item.value * this.props.item.counter} kr</p>
         </div>
         <button
           className="btn-delete"

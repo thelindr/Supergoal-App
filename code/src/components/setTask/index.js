@@ -89,7 +89,7 @@ export default class SetTask extends React.Component {
           </label>
           <br />
 
-          <button className="btn" type="submit">Add task</button>
+          <button className="btn-add" type="submit">Add task</button>
 
         </form>
       </div>

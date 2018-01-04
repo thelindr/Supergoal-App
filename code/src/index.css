@@ -22,7 +22,7 @@ body {
   width: 100%;
 }
 
-.btn {
+.btn, .btn-add {
   border-radius: 28px;
   box-shadow: 0px 4px 0px #8a2d79;
   font-family: 'Dosis', sans-serif;
@@ -39,11 +39,28 @@ body {
   margin-right: auto;
 }
 
-.btn:hover {
+.btn:hover, .btn-add:hover {
   background: #b53bb6;
   /*background: #efacfe;*/
   text-decoration: none;
   box-shadow: 0px 4px 0px #641556;
+}
+
+.btn-disabled {
+  border-radius: 28px;
+  box-shadow: 0px 4px 0px grey;
+  font-family: 'Dosis', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: lightgrey;
+  padding: 10px 20px 10px 20px;
+  border: solid lightgrey 0px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-delete {
@@ -128,7 +145,7 @@ body {
   /*flex-grow: 1;*/
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   background-color: #ffffff;
   width: 80%;
   box-shadow: 3px 3px 8px #515e5c66;
@@ -148,10 +165,10 @@ body {
 
 @keyframes size {
   0%, 100% {
-    width: 10vw;
+    width: 23%;
   }
   50% {
-    width: 11vw;
+    width: 30%;
   }
 }
 
@@ -162,7 +179,8 @@ body {
   font-size: 18px;
   font-weight: 700;
   background: #f4b281;
-  padding: 20px;
+  width: 23%;
+  padding: 10%;
   border: solid #f4b281 0px;
   text-align: center;
   margin-left: auto;
@@ -178,7 +196,8 @@ body {
   font-size: 18px;
   font-weight: 700;
   background: #f4b281;
-  padding: 20px;
+  width: 23%;
+  padding: 10%;
   border: solid #f4b281 0px;
   text-align: center;
   margin-left: auto;
@@ -186,7 +205,7 @@ body {
   margin-bottom: 10px;
   margin-top: 0;
   animation:
-    size 0.4s ease-in-out;
+     size 0.3s ease-in-out;
 }
 
 .moneybag-top {
@@ -254,8 +273,8 @@ body {
 }
 
 h1 {
-  font-size: 48px;
-  margin: 0 0 20px 0;
+  font-size: 42px;
+  margin: 5px 0 15px 0;
 }
 
 h2 {
@@ -297,15 +316,12 @@ select {
 }
 
 @media (min-width: 481px) {
-  .MainScreen {
-    /*flex-grow: 1;*/
-  }
-
   .taskContainer {
     box-sizing: content-box;
     width: 46%;
     margin-left: 2%;
     margin-right: 2%;
+    margin-bottom: 2%;
   }
 
   .listitemcontainer {

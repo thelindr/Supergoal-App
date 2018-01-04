@@ -17,17 +17,6 @@ export default class SetTask extends React.Component {
     })
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault() // 1.prevent clearing the page
-    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue)
-    // 2.Updates list in parent
-    this.setState({
-      taskName: "",
-      taskTimes: "1",
-      taskValue: ""
-    }) // 3.Resets the form inputfield
-  }
-
   handleTaskTimesChange = event => {
     this.setState({
       taskTimes: event.target.value
@@ -47,8 +36,18 @@ export default class SetTask extends React.Component {
     }
   }
 
+  handleFormSubmit = event => {
+    event.preventDefault() // 1.prevent clearing the page
+    this.props.addTaskToList(this.state.taskName, this.state.taskTimes, this.state.taskValue)
+    // 2.Updates list in parent
+    this.setState({
+      taskName: "",
+      taskTimes: "1",
+      taskValue: ""
+    }) // 3.Resets the form inputfield
+  }
+
   render() {
-    // console.log("This is the taskname", this.state.taskName)
     return (
       <div>
         <form className="setTask" onSubmit={this.handleFormSubmit}>
@@ -57,6 +56,7 @@ export default class SetTask extends React.Component {
             <br />
             <input
               type="text"
+              required
               name="taskName"
               value={this.state.taskName}
               onChange={this.handleTaskNameChange}
@@ -81,6 +81,7 @@ export default class SetTask extends React.Component {
             <br />
             <input
               type="number"
+              required
               name="taskValue"
               value={this.state.taskValue}
               onChange={this.handleTaskValueChange}
@@ -88,7 +89,7 @@ export default class SetTask extends React.Component {
           </label>
           <br />
 
-          <button className="btn" type="submit">Add task</button>
+          <button className="btn-add" type="submit">Add task</button>
 
         </form>
       </div>

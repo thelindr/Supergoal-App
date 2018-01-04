@@ -14,8 +14,7 @@ export default class MainScreen extends React.Component {
         {this.props.taskList.length > 0 && // if there are items in the latest
           // updated taskList (passed on from the app/parent state via props),
           // then display them
-          <div className="container">
-            {/* <h1>My tasks:</h1> */}
+          // <div className="container">
             <div className="listitemcontainer">
               {this.props.taskList.map(item => (
                 <ListItem
@@ -26,9 +25,9 @@ export default class MainScreen extends React.Component {
                   deleteButtonWasClicked={this.props.deleteButtonWasClicked} />
               ))}
             </div>
-          </div>
+          // </div>
         }
-        <div className="settaskcontainer">
+        <div className="container settaskcontainer">
           <SetTask
             addTaskToList={this.props.addTaskToList} />
         </div>

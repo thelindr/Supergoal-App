@@ -59,9 +59,6 @@ export default class App extends React.Component {
       value: taskValue,
       counter: 0
     }
-    if (taskName === ("") || taskValue === ("")) {
-      return null
-    }
     // FIX: Remove done?
     this.setState({
       taskList: [taskObject, ...this.state.taskList] // FIX: prevState

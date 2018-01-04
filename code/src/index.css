@@ -100,7 +100,8 @@ body {
   border-radius: 20px;
   padding: 3%;
   color: #ffffff;
-  flex-grow: 1;
+  /*flex-grow: 1;*/
+  margin-top: 20px;
 }
 
 .setTask {
@@ -110,10 +111,10 @@ body {
 .taskContainer {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  /*flex-grow: 1;*/
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   background-color: #ffffff;
   width: 80%;
   box-shadow: 3px 3px 8px #515e5c66;
@@ -140,7 +141,7 @@ body {
   background: #f4b281;
   padding: 20px;
   border: solid #f4b281 0px;
-  width: 15%;
+  width: 20%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -193,6 +194,7 @@ body {
   margin-bottom: 20px;
   margin-top: 10px;
   width: 200px;
+  height: 40px;
   margin-left: auto;
   margin-right: auto;
   }
@@ -249,7 +251,7 @@ select {
 
 @media (min-width: 481px) {
   .MainScreen {
-    flex-grow: 1;
+    /*flex-grow: 1;*/
   }
 
   .taskContainer {
@@ -257,7 +259,6 @@ select {
     width: 46%;
     margin-left: 2%;
     margin-right: 2%;
-    /*flex-grow: 1;*/
   }
 
   .listitemcontainer {

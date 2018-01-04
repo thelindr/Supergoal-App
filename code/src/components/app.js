@@ -3,6 +3,7 @@ import uuid from "uuid/v4"
 import { BrowserRouter, Route } from "react-router-dom"
 import MainScreen from "./mainScreen"
 import SetSuperGoalScreen from "./setSuperGoalScreen"
+import Header from "./header"
 
 export default class App extends React.Component {
 
@@ -121,10 +122,10 @@ export default class App extends React.Component {
   )
 
   render() {
-    console.log("App render")
     return (
       <BrowserRouter>
         <div className="App">
+          <Header />
 
           <Route
             exact
@@ -154,7 +155,7 @@ export default class App extends React.Component {
 
           <Route
             exact
-            path="/update-supergoal" // the URL used if the user wants to update her SuperGoal
+            path="/set-supergoal" // the URL used if the user wants to update her SuperGoal
             render={() =>
               <SetSuperGoalScreen
                 currentSuperGoal={this.state.superGoal}

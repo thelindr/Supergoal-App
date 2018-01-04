@@ -13,12 +13,12 @@ body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  justify-content: flex-start;
 }
 
-.container, .listitemcontainer {
+.listitemcontainer {
   width: 100%;
 }
 
@@ -337,11 +337,6 @@ select {
 }
 
 @media (min-width: 481px) and (max-width: 899px) {
-  .container {
-    flex-direction: row;
-    display: flex;
-    flex-wrap: wrap;
-  }
 
   .taskContainer {
     box-sizing: content-box;
@@ -378,12 +373,6 @@ select {
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
-  }
-
-  .container {
-    flex-direction: row;
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .listitemcontainer {

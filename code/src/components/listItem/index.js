@@ -1,4 +1,5 @@
 import React from "react"
+import numberToStringWithComma from "./../../numberToStringWithComma"
 
 export default class ListItem extends React.Component {
 
@@ -21,7 +22,7 @@ export default class ListItem extends React.Component {
           {/* <input
             type="checkbox"
             checked={this.props.item.done}
-            onChange={this.handleCheckboxChange} /> */}
+          onChange={this.handleCheckboxChange} /> */}
           <h2>{this.props.item.name}</h2>
         </div>
         <button
@@ -29,14 +30,14 @@ export default class ListItem extends React.Component {
           onClick={this.handleDoneButtonClicked}
           disabled={this.props.item.times === this.props.item.counter}>
           {/* The button is disabled if the times equals counter */}
-        Did it!
+          Did it!
         </button>
         <div><p className="countingDone">Done: <span className="boldtext">{this.props.item.counter}</span> / <span className="boldtext">{this.props.item.times}</span> times</p>
-          <p className="valueOfTask">Value of this task: {this.props.item.value} kr</p>
+          <p className="valueOfTask">Value of this task: {numberToStringWithComma(this.props.item.value)} kr</p>
         </div>
         <div className="moneybag-container"><h4 className="moneybag-heading">Total earnings for this task:</h4>
           <p className="moneybag-top" />
-          <p className={this.props.item.counter ? "moneybag-add" : "moneybag"}> {this.props.item.value * this.props.item.counter} kr</p>
+          <p className={this.props.item.counter ? "moneybag-add" : "moneybag"}> {numberToStringWithComma(this.props.item.value * this.props.item.counter)} kr</p>
         </div>
         <button
           className="btn-delete"

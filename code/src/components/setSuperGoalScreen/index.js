@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import createHistory from "history/createBrowserHistory"
+// import createHistory from "history/createBrowserHistory"
 import "./style.css"
 
 export default class SetSuperGoalScreen extends React.Component {
@@ -29,14 +29,19 @@ export default class SetSuperGoalScreen extends React.Component {
   }
 
   handleSuperGoalValueChange = event => {
-    this.setState({
-      superGoalValue: event.target.value
-    })
+    if (parseFloat(event.target.value) > 0) {
+      this.setState({
+        superGoalValue: event.target.value
+      })
+    } else if (event.target.value === "") {
+      this.setState({
+        superGoalValue: ""
+      })
+    }
   }
 
 handleFormSubmit = event => {
   event.preventDefault()
-  createHistory().push("/") // FIX
   this.props.updateSuperGoalInApp(this.state.superGoalName, this.state.superGoalValue)
 }
 
@@ -50,7 +55,7 @@ render() {
 
       {!this.checkCurrentSuperGoal() ? (
         <div>
-          <h2>Welcome!</h2>
+          <h1>Welcome!</h1>
           <p>First of all, set up your SuperGoal!
           </p>
         </div>
@@ -75,9 +80,11 @@ render() {
         <label htmlFor="superNameKey">What do you want to save money for?</label>
         <br />
         <input
+          className="styleinputfield"
           id="superNameKey"
           type="text"
           name="superGoalName"
+          required
           placeholder={!this.checkCurrentSuperGoal() ? "e.g. Skateboard" : ""}
           value={this.state.superGoalName}
           onChange={this.handleSuperGoalNameChange} />
@@ -88,9 +95,11 @@ render() {
         <br />
         <div>
           <input
+            className="styleinputfield"
             id="valueKey"
             type="number"
             name="value"
+            required
             placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000" : ""}
             value={this.state.superGoalValue}
             onChange={this.handleSuperGoalValueChange} />

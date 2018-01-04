@@ -56,6 +56,7 @@ export default class SetTask extends React.Component {
             Name your task:
             <br />
             <input
+              className="styleinputfield"
               type="text"
               required
               name="taskName"
@@ -81,6 +82,7 @@ export default class SetTask extends React.Component {
             Value of the task:
             <br />
             <input
+              className="styleinputfield"
               type="number"
               required
               name="taskValue"

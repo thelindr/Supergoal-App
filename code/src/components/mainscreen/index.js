@@ -1,8 +1,9 @@
 import React from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import SetTask from "./../setTask"
 import ListItem from "./../listItem"
 import LiquidGauge from "./../liquidGauge"
+import numberToStringWithComma from "./../../numberToStringWithComma"
 
 export default class MainScreen extends React.Component {
 
@@ -36,15 +37,18 @@ export default class MainScreen extends React.Component {
           <div className="earningscontainer">
             <LiquidGauge
               percentageOfSupergoal={this.props.countPercentageOfSupergoal()} />
-            <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor!</h4>
-            <h4>That means you are {this.props.countPercentageOfSupergoal()} &#37;
-              closer to get your {this.props.superGoalName} !!!
-            </h4>
+            <h4>Wow, you&apos;ve earned: <span className="boldtext">{numberToStringWithComma(this.props.countTotalEarnings())} kronor!</span></h4>
+            <p>That means you are <span className="bolditalictext"> {numberToStringWithComma(this.props.countPercentageOfSupergoal())} &#37; </span>
+              closer to get your <span className="bolditalictext">{this.props.superGoalName} !!!</span>
+            </p>
 
           </div>
         }
         {/* SetTask is always displayed if there is a superGoal */}
-        <Link className="changeGoal" to="/set-supergoal">Do you want to change your SuperGoal?</Link>
+
+        {/* <Link className="changeGoal" to="/set-supergoal">Do you want
+        to change your SuperGoal?</Link> */}
+
       </div>
     )
   }

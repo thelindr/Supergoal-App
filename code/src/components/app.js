@@ -94,12 +94,21 @@ export default class App extends React.Component {
 
   updateCounter = id => { // Function receives the id of the object
     // that shall be updated
-    const updatedListOfTasks = this.state.taskList.map(item => {
+    let indexToMove = null
+    let updatedListOfTasks = this.state.taskList.map((item, index) => {
       if (item.id === id) {
-        item.counter += 1
+        if (item.counter + 1 === item.times) {
+          indexToMove = index
+          item.counter += 1
+        } else {
+          item.counter += 1
+        }
       }
       return item
     })
+    if (indexToMove) {
+      updatedListOfTasks = updatedListOfTasks.concat(updatedListOfTasks.splice(indexToMove, 1))
+    }
     this.setState({
       taskList: updatedListOfTasks
     }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })

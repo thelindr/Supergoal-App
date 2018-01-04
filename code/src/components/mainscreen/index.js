@@ -36,10 +36,10 @@ export default class MainScreen extends React.Component {
           <div className="earningscontainer">
             <LiquidGauge
               percentageOfSupergoal={this.props.countPercentageOfSupergoal()} />
-            <h4>Wow, you&apos;ve earned: {this.props.countTotalEarnings()} kronor!</h4>
-            <h4>That means you are {this.props.countPercentageOfSupergoal()} &#37;
-              closer to get your {this.props.superGoalName} !!!
-            </h4>
+            <h4>Wow, you&apos;ve earned: <span className="boldtext">{this.props.countTotalEarnings()} kronor!</span></h4>
+            <p>That means you are <span className="bolditalictext"> {this.props.countPercentageOfSupergoal()} &#37; </span>
+              closer to get your <span className="bolditalictext">{this.props.superGoalName} !!!</span>
+            </p>
 
           </div>
         }

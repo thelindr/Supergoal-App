@@ -1,5 +1,4 @@
 import React from "react"
-// import { Link } from "react-router-dom"
 import SetTask from "./../setTask"
 import ListItem from "./../listItem"
 import LiquidGauge from "./../liquidGauge"
@@ -42,9 +41,8 @@ export default class MainScreen extends React.Component {
 
           </div>
         }
-        {/* SetTask is always displayed if there is a superGoal */}
 
-        {/* <Link className="changeGoal" to="/set-supergoal">Do you want
+        {/* NO LONGER IN SCOPE:<Link className="changeGoal" to="/set-supergoal">Do you want
         to change your SuperGoal?</Link> */}
 
       </div>

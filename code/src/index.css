@@ -324,7 +324,6 @@ input.styleinputfield {
 
 input:valid {
   font-style: normal;
-  padding-left: 5px;
 }
 
 select {

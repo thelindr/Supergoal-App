@@ -10,7 +10,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      superGoal: {
+      superGoal: { // start the App with an empty supergoal
         name: "",
         value: null
       },
@@ -19,29 +19,13 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
-    if (localStorage.getItem("superGoalAppData")) {
+    if (localStorage.getItem("superGoalAppData")) { // checking if there is a localstorage for this app
       this.setState(JSON.parse(localStorage.getItem("superGoalAppData")))
     }
   }
   // Here we parse (change the string back to an object) the localstorage from addTaskToList
 
-  // FIX
-  // componentWillUpdate() {
-  //   console.log("componentWillUpdate")
-  //   const history = createHistory()
-  //   if (history.location.pathname === "/update-supergoal" ||
-  //     history.location.pathname === "/update-supergoal/") {
-  //     console.log("Found the URL")
-  //     history.replace("/")
-  //     console.log("URL push")
-  //   }
-  // }
-
   updateSuperGoal = (newSuperGoalName, newSuperGoalValue) => {
-    // FIX
-    // if (location === "update-supergoal") {
-    //   createHistory().push("/")
-    // }
     this.setState({
       superGoal: {
         name: newSuperGoalName,
@@ -49,21 +33,22 @@ export default class App extends React.Component {
       }
     }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
   }
+  // As JavaScript is asynchronous, we need to add the funcion as a second argument to setState
+  // to make sure it is run after the state is updated
+  // as the newly updated object needs to be used
 
   addTaskToList = (taskName, taskTimes, taskValue) => {
     const taskObject = {
       id: uuid(),
       name: taskName,
-      done: false,
       times: parseFloat(taskTimes),
       value: taskValue,
       counter: 0
     }
-    // FIX: Remove done?
     this.setState({
       taskList: [taskObject, ...this.state.taskList] // FIX: prevState
     }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
-    // At the end of array taskList, add a new object
+    // At the start of array taskList, add a new object
     // The object needs to be stringified to be able to be saved in the state.
   }
 
@@ -76,22 +61,8 @@ export default class App extends React.Component {
     }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
   }
 
-  // updateDoneStatus = id => { // Function receives the name of the object
-  //   // that shall be updated
-  //   const updatedListOfTasks = this.state.taskList.map(item => {
-  //     if (item.id === id) {
-  //       item.done = !item.done
-  //     }
-  //     return item
-  //   })
-  //   this.setState({
-  //     taskList: updatedListOfTasks
-  //   }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
-  // }
-  // As JavaScript is asynchronous, we need a funcion to make sure
-  // that it is run only after the state of addTaskToList is changed
-  // as the newly object needs to be used
-
+  // This function updates the counter and also, if this was the last "done iteration" (x/x),
+  // it moves the task to the bottom of the array
   updateCounter = id => { // Function receives the id of the object
     // that shall be updated
     let indexToMove = null
@@ -108,6 +79,12 @@ export default class App extends React.Component {
     })
     if (indexToMove !== null) {
       updatedListOfTasks = updatedListOfTasks.concat(updatedListOfTasks.splice(indexToMove, 1))
+    // HERE FOLLOWS THE LONGER VERSION OF THE SINGLE LINE OF CODE ABOVE:
+    // first the one item in the array is found and removed from the
+    // original array with "splice" and put "on the side"
+    // const arrayContainingTheitemToRemoveFromOriginalArray = updatedListOfTasks.splice(indexToMove, 1)
+    // then we merge the two arrays using "concat"
+    // updatedListOfTasks = updatedListOfTasks.concat(arrayContainingTheitemToRemoveFromOriginalArray)
     }
     this.setState({
       taskList: updatedListOfTasks
@@ -159,6 +136,7 @@ export default class App extends React.Component {
             }
             } />
 
+          {/* This is now out of scope */}
           {/* <Route
             exact
             path="/set-supergoal" // the URL used if the user wants to update her SuperGoal

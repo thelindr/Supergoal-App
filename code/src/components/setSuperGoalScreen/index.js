@@ -1,18 +1,17 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import createHistory from "history/createBrowserHistory"
 import "./style.css"
 
 export default class SetSuperGoalScreen extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
+    this.state = { // Local state used only for inputfields
       superGoalName: "",
       superGoalValue: ""
     }
   }
-
+  // only in use if superGoal is updated
   componentWillMount() {
     if (this.checkCurrentSuperGoal()) {
       this.setState({
@@ -21,6 +20,10 @@ export default class SetSuperGoalScreen extends React.Component {
       })
     }
   }
+  // only in use if superGoal is updated
+  checkCurrentSuperGoal = () => (
+    this.props.currentSuperGoal.value !== null
+  )
 
   handleSuperGoalNameChange = event => {
     this.setState({
@@ -29,11 +32,11 @@ export default class SetSuperGoalScreen extends React.Component {
   }
 
   handleSuperGoalValueChange = event => {
-    if (parseFloat(event.target.value) > 0) {
+    if (parseFloat(event.target.value) > 0) { // allows the user to only put in positive numbers
       this.setState({
         superGoalValue: event.target.value
       })
-    } else if (event.target.value === "") {
+    } else if (event.target.value === "") { // allows the user to delete all numbers in inputfield
       this.setState({
         superGoalValue: ""
       })
@@ -44,10 +47,6 @@ handleFormSubmit = event => {
   event.preventDefault()
   this.props.updateSuperGoalInApp(this.state.superGoalName, this.state.superGoalValue)
 }
-
-checkCurrentSuperGoal = () => (
-  this.props.currentSuperGoal.value !== null
-)
 
 render() {
   return (
@@ -85,7 +84,7 @@ render() {
           type="text"
           name="superGoalName"
           required
-          placeholder={!this.checkCurrentSuperGoal() ? "e.g. Skateboard" : ""}
+          placeholder={!this.checkCurrentSuperGoal() ? "e.g. Skateboard" : ""} // Placeholder will be empty if there already is a supergoal
           value={this.state.superGoalName}
           onChange={this.handleSuperGoalNameChange} />
 
@@ -100,7 +99,7 @@ render() {
             type="number"
             name="value"
             required
-            placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000 kr" : ""}
+            placeholder={!this.checkCurrentSuperGoal() ? "e.g. 2000 kr" : ""} // Placeholder will be empty if there already is a supergoal
             value={this.state.superGoalValue}
             onChange={this.handleSuperGoalValueChange} />
         </div>

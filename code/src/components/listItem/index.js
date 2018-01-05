@@ -3,10 +3,6 @@ import numberToStringWithComma from "./../../numberToStringWithComma"
 
 export default class ListItem extends React.Component {
 
-  // handleCheckboxChange = () => {
-  //   this.props.updateDone(this.props.id)
-  // }
-
   handleDoneButtonClicked = () => {
     this.props.doneButtonWasClicked(this.props.item.id)
   }
@@ -19,14 +15,10 @@ export default class ListItem extends React.Component {
     return (
       <div className="taskContainer">
         <div>
-          {/* <input
-            type="checkbox"
-            checked={this.props.item.done}
-          onChange={this.handleCheckboxChange} /> */}
           <h2>{this.props.item.name}</h2>
         </div>
         <button
-          className={this.props.item.times === this.props.item.counter ? "btn-disabled" : "btn"}
+          className={this.props.item.times === this.props.item.counter ? "btn-disabled" : "btn"} // changes the style of the button
           onClick={this.handleDoneButtonClicked}
           disabled={this.props.item.times === this.props.item.counter}>
           {/* The button is disabled if the times equals counter */}

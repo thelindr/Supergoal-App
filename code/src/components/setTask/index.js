@@ -23,10 +23,9 @@ export default class SetTask extends React.Component {
     })
   }
 
-  handleTaskValueChange = event => { // OBS! Make sure dots are allowed
+  handleTaskValueChange = event => {
     if (event.target.value && parseFloat(event.target.value) >= 0) { // check if input value is OK
       this.setState({
-      // taskValue: event.target.value
         taskValue: parseFloat(event.target.value)
       })
     } else if (event.target.value === "") {

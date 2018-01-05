@@ -131,6 +131,7 @@ export default class App extends React.Component {
                   countPercentageOfSupergoal={this.countPercentageOfSupergoal}
                   showTwoDecimals={this.showTwoDecimals}
                   superGoalName={this.state.superGoal.name}
+                  superGoalValue={this.state.superGoal.value}
                   addTaskToList={this.addTaskToList} />
               }
             }

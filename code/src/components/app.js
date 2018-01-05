@@ -45,9 +45,11 @@ export default class App extends React.Component {
       value: taskValue,
       counter: 0
     }
-    this.setState({
-      taskList: [taskObject, ...this.state.taskList] // FIX: prevState
-    }, () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) })
+    this.setState(prevState => ({ // using prevState we make sure that when we update our state
+      // with a new object, we base that object to the previous state to ensure
+      // we don't use the wrong values...
+      taskList: [taskObject, ...prevState.taskList]
+    }), () => { localStorage.setItem("superGoalAppData", JSON.stringify(this.state)) }) // ...to make sure that we always have the latest state here as this.state
     // At the start of array taskList, add a new object
     // The object needs to be stringified to be able to be saved in the state.
   }

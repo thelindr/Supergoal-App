@@ -3,8 +3,19 @@ import numberToStringWithComma from "./../../numberToStringWithComma"
 
 export default class ListItem extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      toggle: false
+    }
+  }
+
   handleDoneButtonClicked = () => {
-    this.props.doneButtonWasClicked(this.props.item.id)
+    this.setState({
+      toggle: !this.state.toggle
+    }, () => {
+      this.props.doneButtonWasClicked(this.props.item.id)
+    })
   }
 
   handleDeleteButtonClicked = () => {
@@ -29,7 +40,7 @@ export default class ListItem extends React.Component {
         </div>
         <div className="moneybag-container"><h4 className="moneybag-heading">Total earnings for this task:</h4>
           <p className="moneybag-top" />
-          <p className={this.props.item.counter ? "moneybag-add" : "moneybag"}> {numberToStringWithComma(this.props.item.value * this.props.item.counter)} kr</p>
+          <p className={this.state.toggle ? "moneybag-add" : "moneybag"}> {numberToStringWithComma(this.props.item.value * this.props.item.counter)} kr</p>
         </div>
         <button
           className="btn-delete"
